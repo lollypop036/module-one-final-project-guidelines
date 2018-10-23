@@ -9,7 +9,7 @@ class User <  ActiveRecord::Base
     end
 
     def search_for_collaborations_by_artist(artist)
-        Collaboration.all.where("artist.id == ?", artist_id)
+        Collaboration.all.where("artist_id == ?", artist.id)
     end
 
     def view_exhibitions_by_collaborations(artist)

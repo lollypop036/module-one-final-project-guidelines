@@ -9,7 +9,7 @@ class Artist < ActiveRecord::Base
 
 
     def view_collaborations
-        Collaboration.where("artist_id == ?" self.id)
+        Collaboration.where("artist_id == ?", self.id)
     end
 
     def view_exhibitions
