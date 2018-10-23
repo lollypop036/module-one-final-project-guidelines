@@ -1,10 +1,10 @@
-class CreateArtistsTable < ActiveRecord::Migration[5.0]
+class CreateArtistsTable < ActiveRecord::Migration[5.1]
 
     def change 
-        create_table do |t|
+        create_table :artists do |t|
             t.string :name
             t.string :location
-            t.integer :style
+            t.integer :style_id
     end
 
 end
