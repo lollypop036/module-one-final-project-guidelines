@@ -8,6 +8,16 @@ class Artist < ActiveRecord::Base
     has_many :users, through: :bookings
 
 
+    def self.search_credentials(username, password)
+        if self.find_by(username: username, password: password)
+            self.find_by(username: username, password: password)
+        else
+            false
+        end
+    end
+
+
+
     def view_collaborations
         Collaboration.where("artist_id == ?", self.id)
     end
@@ -15,7 +25,6 @@ class Artist < ActiveRecord::Base
     def view_exhibitions
         User.get_exhibitions_by_collaborations(self)
     end
-
 
 
 
