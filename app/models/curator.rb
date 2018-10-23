@@ -10,7 +10,7 @@ class Curator <  ActiveRecord::Base
     end
 
     def get_exhibitions
-        Exhibition.find_by(curator_id: self.id)
+        Exhibition.where("curator_id = ?", self.id)
     end
 
     def search_for_collaborations
