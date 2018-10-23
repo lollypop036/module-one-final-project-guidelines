@@ -10,7 +10,8 @@ class Artist < ActiveRecord::Base
 
     def self.search_credentials(username, password)
         if self.find_by(username: username, password: password)
-            self.find_by(username: username, password: password)
+            #self.find_by(username: username, password: password)
+            true
         else
             false
         end

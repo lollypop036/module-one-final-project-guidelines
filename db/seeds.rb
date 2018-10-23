@@ -20,7 +20,7 @@ co1 = Collaboration.create()
 co1 = Collaboration.create()
 
 #Curator
-cu1 = Curator.create(name: "Terry Crews")
+cu1 = Curator.create(name: "Terry Crews", username: "terry", password: "admin")
 cu1 = Curator.create(name: "Kenny G")
 
 #Users

@@ -6,9 +6,8 @@ class Interface
             puts "What would you like to do? (sign-in - s, create-account - a, continue-as-guest - g or quit - q)"
             command = gets.chomp
             if(command == "s")
-                #login page
-                puts "y"
-                break
+                login = Login.new
+                login.run
             elsif(command == "a")
                 #create_account page
                 puts "Would "
