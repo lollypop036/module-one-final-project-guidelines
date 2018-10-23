@@ -6,7 +6,9 @@ class Login
             password = get_password
             if(is_artists?(username, password))
                 #artist dashboard
+                artist = Artist.get_artist(username, password)
                 puts "Artist yes"
+                puts artist
                 break
             elsif(is_curator?(username, password))
                 #curator dashboard

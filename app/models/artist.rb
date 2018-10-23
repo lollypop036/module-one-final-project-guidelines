@@ -17,6 +17,10 @@ class Artist < ActiveRecord::Base
         end
     end
 
+    def self.get_artist(username, password)
+        self.find_by(username: username, password: password)
+    end
+
 
 
     def view_collaborations
