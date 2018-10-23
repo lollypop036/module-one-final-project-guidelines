@@ -9,7 +9,7 @@ a2 = Artist.create(name: "Jimmy", location: "Tokyo", style_id: 1)
 a3 = Artist.create(name: "Bella", location: "Milan", style_id: 2)
 
 #Exhibitions
-ex1 = Exhibition.create()
+ex1 = Exhibition.create(name: "World Wonders", location: "Tokyo")
 
 #Collaborations
 co1 = Collaboration.create()
