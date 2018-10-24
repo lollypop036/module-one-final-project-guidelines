@@ -24,11 +24,9 @@ class CuratorViewExhibitions
                 puts "The number you entered did not relate to a command, try again."
             end
         end
-            
     end
 
     def list_exhibitions(arr_exhibitions, state="")
-        #binding.pry
         if(arr_exhibitions.length > 0)
             count = 1
             puts "\nYour #{state}exhibitions are;"
