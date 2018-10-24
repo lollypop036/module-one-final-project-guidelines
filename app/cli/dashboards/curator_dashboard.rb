@@ -6,4 +6,12 @@ class CuratorDashboard
         @curator = curator
     end
 
+    def run
+        welcome_message
+    end
+
+    def welcome_message
+        puts "Welcome Curator #{curator.name}."
+    end
+
 end
