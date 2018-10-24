@@ -2,11 +2,12 @@ require_relative '../config/environment'
 
 #  ui = Interface.new
 # ui.run
-curator = Curator.all[0]
+user = User.all[0]
+cd = UserEditMenu.new(User)
 # cd = CuratorDashboard.new(curator)
-# cd.run
-cv = CuratorViewExhibitions.new(curator)
-cv.run
+cd.run
+# cv = CuratorViewExhibitions.new(curator)
+# cv.run
 
 # ruby bin/run.rb
 

@@ -1,10 +1,10 @@
-class ArtistViewExhibitionsMenu < CuratorViewExhibitionsMenu
+class ArtistViewExhibitionsMenu 
 
 
     attr_reader :artist
 
     def initialize(artist)
-        @artist = curator
+        @artist = artist
     end
 
     def run
@@ -27,3 +27,24 @@ class ArtistViewExhibitionsMenu < CuratorViewExhibitionsMenu
         end
             
     end
+
+
+    def list_exhibitions(arr_exhibitions, state="")
+        #binding.pry
+        if(arr_exhibitions.length > 0)
+            count = 1
+            puts "\nYour #{state}exhibitions are;"
+            arr_exhibitions.each do |e| 
+                puts "#{count}. #{e.name}"
+                puts "#{self.exhibition_visitor_count(e)} tickets sold"
+                count += 1
+            end 
+        else
+            puts "\nYou have no #{state}exhibitions on record."
+        end
+    end
+
+
+
+
+end
