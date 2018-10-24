@@ -16,6 +16,8 @@ class UserExhibitionMenu
                 view_menu.run
                 break
             elsif(command == "2")
+                search_menu = UserExhibitionSearchMenu.new(user)
+                search_menu.run
                 break
             elsif(command == "3")
                 break

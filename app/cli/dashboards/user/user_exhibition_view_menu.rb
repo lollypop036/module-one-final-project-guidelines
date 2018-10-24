@@ -51,7 +51,7 @@ class UserExhibitionViewMenu
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-3)"
+        puts "\nPlease enter a command number.(1-4)"
         gets.chomp
     end
 
