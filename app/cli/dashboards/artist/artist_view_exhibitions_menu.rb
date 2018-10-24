@@ -16,9 +16,9 @@ class ArtistViewExhibitionsMenu
             if(command == "1")
                 list_exhibitions(artist.get_exhibitions)
             elsif(command == "2")
-                list_exhibitions(artist.get_previous_exhibitions(today_date), "previous ")
+                list_exhibitions(artist.get_previous_exhibitions, "previous ")
             elsif(command == "3")
-                list_exhibitions(artist.get_upcoming_exhibitions(today_date), "upcoming ")
+                list_exhibitions(artist.get_upcoming_exhibitions, "upcoming ")
             elsif(command == "4")
                 break
             else
@@ -36,8 +36,8 @@ class ArtistViewExhibitionsMenu
             count = 1
             puts "\nYour #{state}exhibitions are;"
             arr_exhibitions.each do |e| 
-                puts "#{count}. #{e.name}"
-                puts "#{self.exhibition_visitor_count(e)} tickets sold"
+                puts "#{count}. #{e.name} - #{e.date}, #{e.location}"
+                puts "#{artist.exhibition_visitor_count(e)} tickets sold"
                 count += 1
             end 
         else

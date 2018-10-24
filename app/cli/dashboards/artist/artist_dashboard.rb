@@ -28,8 +28,6 @@ class ArtistDashboard
                 search = ArtistSearchMenu.new(artist)
                 search.run
             elsif(command == "5")
-                #search collabs
-            elsif(command == "6")
                 puts "Goodbye, Artist #{artist.name}"
                 break
             else
@@ -48,8 +46,7 @@ class ArtistDashboard
         puts "2. View your Exhibitions."
         puts "3. Create a new Exhibition."
         puts "4. Search People."
-        puts "5. Search Collaborations."
-        puts "6. Sign Out."
+        puts "5. Sign Out."
     end
 
     def get_user_input

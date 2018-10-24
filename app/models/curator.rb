@@ -21,8 +21,14 @@ class Curator <  ActiveRecord::Base
         get_exhibitions.select{|e| Date.parse(e.date) >= today_date}
     end
 
-    def search_for_collaborations
-        Collaboration.all
+   
+    def make_exhibition_booking(exhibition)
+        booking = Booking.create(curator_id: self.id, exhibition_id: exhibition.id, user_id: nil, artist_id:nil, reference_number:SecureRandom.hex(6))
+        puts "Booking complete. Reference number - #{booking.reference_number}."
+    end
+
+    def view_bookings
+        Booking.all.where("curator_id == ?", self.id)
     end
 
     def assign_collaboration_to_exhibition(collaboration, exhibition)
@@ -55,7 +61,7 @@ class Curator <  ActiveRecord::Base
         self.view_exhibition_visitors(exhibition).length
     end
 
-    
+
 
     def self.search_by_name(name)
         self.all.where("self.name == ?", name)

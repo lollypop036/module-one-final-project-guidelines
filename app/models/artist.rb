@@ -21,26 +21,32 @@ class Artist < ActiveRecord::Base
         Collaboration.where("artist_id == ?", self.id)
     end
 
-    def view_all_exhibitions
-        Exhibition.all
-    end
 
     def create_exhibition(name, date, location, time)
         Exhibition.create(name: name, date: date, location: location, time: time, curator_id: nil, artist_id: self.id, style:self.style)
     end
 
+    def make_exhibition_booking(exhibition)
+        booking = Booking.create(artist_id: self.id, exhibition_id: exhibition.id, user_id: nil, artist_id:nil, reference_number:SecureRandom.hex(6))
+        puts "Booking complete. Reference number - #{booking.reference_number}."
+    end
+
+
+    def view_bookings
+        Booking.all.where("artist_id == ?", self.id)
+    end
 
     #methods for searching and retrieving info for the artist's own exhibitions
     def get_exhibitions
         Exhibition.all.where("artist_id = ?", self.id)
     end
 
-    def get_previous_exhibitions(today_date)
-        get_exhibitions.select{|e| Date.parse(e.date) < today_date}
+    def get_previous_exhibitions
+        get_exhibitions.select{|e| Date.parse(e.date) < Date.today}
     end
 
-    def get_upcoming_exhibitions(today_date)
-        get_exhibitions.select{|e| Date.parse(e.date) > today_date}
+    def get_upcoming_exhibitions
+        get_exhibitions.select{|e| Date.parse(e.date) > Date.today}
     end
 
     def view_exhibition_visitors(exhibition)
