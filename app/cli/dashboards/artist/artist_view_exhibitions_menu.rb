@@ -1,4 +1,4 @@
-class ArtistViewExhibitionsMenu < CuratorViewExhibitionsMenu
+class ArtistViewExhibitionsMenu 
 
 
     attr_reader :artist
@@ -27,3 +27,4 @@ class ArtistViewExhibitionsMenu < CuratorViewExhibitionsMenu
         end
             
     end
+end
