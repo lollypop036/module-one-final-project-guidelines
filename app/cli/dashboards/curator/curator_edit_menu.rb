@@ -7,10 +7,6 @@ class CuratorEditMenu
     end
 
     def run
-        puts curator.name
-        puts curator.username
-        puts curator.password
-        #binding.pry
         welcome_message
         while(true)
             command_list

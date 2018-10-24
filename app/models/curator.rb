@@ -34,4 +34,8 @@ class Curator <  ActiveRecord::Base
         end
     end
 
+    def self.get_curator(username, password)
+        self.find_by(username: username, password: password)
+    end
+
 end
