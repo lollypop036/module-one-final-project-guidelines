@@ -1,4 +1,4 @@
-class UserExhibitionMenu
+class UserExhibitionSearchMenu
 
     attr_reader :user
 
@@ -12,15 +12,11 @@ class UserExhibitionMenu
             command_list
             command = get_user_command
             if(command == "1")
-                view_menu = UserExhibitionViewMenu.new(user)
-                view_menu.run
-                break
             elsif(command == "2")
-                search_menu = UserExhibitionSearchMenu.new(user)
-                search_menu.run
-                break
-            elsif(command == "3")
-                break
+            elsif(command == "2")
+            elsif(command == "2")
+            elsif(command == "2")
+            elsif(command == "2")
             else
                 puts "The number you entered did not relate to a command, try again."
             end
@@ -28,13 +24,16 @@ class UserExhibitionMenu
     end
 
     def welcome_message
-        puts "\nWelcome to the Exhibition Menu."
+        puts "\nWelcome to the Search Exhibition Menu."
     end
 
     def command_list
-        puts "\n1. View Exhibitions."
-        puts "2. Search Exhibitions."
-        puts "3. Quit to main dashboard."
+        puts "\n1. Search Exhibitions by name."
+        puts "2. Search Exhibitions by Artist."
+        puts "3. Search Exhibitions by Style."
+        puts "4. Search Exhibitions by Curator."
+        puts "5. Search Exhibitions by Location."
+        puts "6. Quit to main dashboard."
     end
 
     def get_user_command

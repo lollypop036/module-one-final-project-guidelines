@@ -13,5 +13,21 @@ class Exhibition <  ActiveRecord::Base
     def self.view_upcoming_exhibitions(today_date)
         self.all.select{|e| Date.parse(e.date) >= today_date}
     end
+
+    def self.search_by_name(name)
+        self.all.where("name = ?", name)
+    end
+
+    def self.search_by_style(style)
+        self.all.where("style = ?", style)
+    end
+
+    def self.search_by_location(location)
+        self.all.where("location = ?", location)
+    end
+
+    def self.search_by_date(date)
+        self.all.where("date = ?", date)
+    end
     
 end
