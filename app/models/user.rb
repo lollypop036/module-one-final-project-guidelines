@@ -25,6 +25,9 @@ class User <  ActiveRecord::Base
         Booking.all.where("user_id == ?", self.id)
     end
 
+
+    
+
     def self.search_credentials(username, password)
         if self.find_by(username: username, password: password)
             #self.find_by(username: username, password: password)
