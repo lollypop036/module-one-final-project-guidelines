@@ -1,5 +1,12 @@
 class ArtistSearchMenu
 
+
+    attr_reader :artist
+
+    def initialize(artist)
+        @artist = artist
+    end
+    
     def run
         welcome_message
         while(true)
@@ -7,9 +14,9 @@ class ArtistSearchMenu
             command = get_user_command
             today_date = Date.today
             if(command == "1")
-                #find artists
+                search_artists
             elsif(command == "2")
-                #find curators
+                search_curators
             elsif(command == "3")
                 #find collabs
             elsif(command == "4")
@@ -20,8 +27,9 @@ class ArtistSearchMenu
                 puts "The number you entered did not relate to a command, try again."
             end
         end
-            
     end
+            
+    
 
     def welcome_message
         puts "\ Discover people and build a network around the globe."
@@ -51,30 +59,36 @@ class ArtistSearchMenu
         puts "3. Style"
 
         search = gets.chomp
-        while(true)
+        
             case search
-            when 1
+            when "1"
                 puts "Enter name"
                 search = gets.chomp
-                Artist.search_by_name(search)
-
-            when 2
+               result = Artist.search_by_name(search)
+               
+            when "2"
                 puts "Enter location"
                 search = gets.chomp
-                Artist.search_by_location(search)
-
-            when 3
+                result = Artist.search_by_location(search)
+              
+            when "3"
                 puts "Enter style"
                 search = gets.chomp
-                Artist.search_by_style(search)
-
+                result = Artist.search_by_style(search)
+                
             else
                 "Please enter a valid number"
             end
-
+        
+   
+        if result != nil
+        result.each do |x|  
+            puts "#{result.name} - Upcoming Exhibitions" 
+            puts x.get_upcoming_exhibitions(Date.today)
+        end
+    else
+        puts "No results"
     end
-
-
     end
 
 
@@ -86,30 +100,40 @@ class ArtistSearchMenu
         search = gets.chomp
         
         case search
-        when 1
+        when "1"
             puts "Enter name"
            search = gets.chomp
-           Curator.search_by_name(search)
-
-        when 2
+           result =  Curator.search_by_name(search)
+            
+        when "2"
             puts "Enter location"
             search = gets.chomp
-            Curator.search_by_location(search)
-
-        when 3
+            result = Curator.search_by_location(search)
+            
+        when "3"
             puts "Enter style"
             search = gets.chomp
-            Curator.search_by_style(search)
-
+            result = Curator.search_by_style(search)
+           
         else
             "Please enter a valid number"
         end
+    
+
+        if result != nil
+            result.each do |x|  
+                puts "#{result.name} - Upcoming Exhibitions" 
+                puts x.get_upcoming_exhibitions
+            end
+        else
+            puts "No results"
+        end
+    
+    
     end
-
-
-
-
     
 
 
+    
 end
+

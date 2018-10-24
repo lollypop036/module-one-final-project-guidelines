@@ -15,9 +15,12 @@ user = User.all[0]
 # cd.run
 # cv = CuratorViewExhibitions.new(curator)
 # cv.run
+artist = Artist.all[0]
+art = ArtistDashboard.new(artist)
+art.run
 
-ce = CuratorCreateMenu.new(curator)
-ce.run
+# ce = CuratorCreateMenu.new(curator)
+# ce.run
 
 
 

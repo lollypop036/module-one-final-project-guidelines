@@ -25,6 +25,8 @@ class ArtistDashboard
                 create_menu.run
             elsif(command == "4")
            #search curators & artists
+                search = ArtistSearchMenu.new(artist)
+                search.run
             elsif(command == "5")
                 #search collabs
             elsif(command == "6")

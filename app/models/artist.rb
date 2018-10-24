@@ -25,25 +25,14 @@ class Artist < ActiveRecord::Base
         Exhibition.all
     end
 
-    def create_exhibition(name, date, location, time, style)
+    def create_exhibition(name, date, location, time)
         Exhibition.create(name: name, date: date, location: location, time: time, curator_id: nil, artist_id: self.id, style:self.style)
     end
 
 
-    def search_curators(name)
-        Curator.all.where("curator.name == ?", name)
-    end
-
-    
-
-    
-
-
-
-
     #methods for searching and retrieving info for the artist's own exhibitions
     def get_exhibitions
-        Exhibition.all.where(artist_id == self || collaborations.artist_id == self)
+        Exhibition.all.where("artist_id = ?", self.id)
     end
 
     def get_previous_exhibitions(today_date)
@@ -62,18 +51,20 @@ class Artist < ActiveRecord::Base
         self.view_exhibition_visitors(exhibition).length
     end
 
+
+    # class methods
     
     def self.search_by_style(style)
-        self.all.where("self.style == ?", style)
+        self.all.where("style == ?", style)
     end
 
 
     def self.search_by_name(name)
-        self.all.where("self.name == ?", name)
+        self.all.where("name == ?", name)
     end
 
     def self.search_by_location(location)
-        self.all.where("self.location == ?", location)
+        self.all.where("location == ?", location)
     end
     
 
