@@ -11,11 +11,13 @@ class CuratorViewExhibitions
         while(true)
             command_list
             command = get_user_command
+            today_date = Date.today
             if(command == "1")
                 list_exhibitions(curator.get_exhibitions)
-                #binding.pry
             elsif(command == "2")
+                list_exhibitions(curator.get_previous_exhibitions(today_date), "previous ")
             elsif(command == "3")
+                list_exhibitions(curator.get_upcoming_exhibitions(today_date), "upcoming ")
             elsif(command == "4")
                 break
             else
@@ -25,16 +27,17 @@ class CuratorViewExhibitions
             
     end
 
-    def list_exhibitions(arr_exhibitions)
+    def list_exhibitions(arr_exhibitions, state="")
+        #binding.pry
         if(arr_exhibitions.length > 0)
             count = 1
-            puts "\nYour exhibitions are;"
+            puts "\nYour #{state}exhibitions are;"
             arr_exhibitions.each do |e| 
                 puts "#{count}. #{e.name}"
                 count += 1
             end 
         else
-            puts "\nYou have no exhibitions on record."
+            puts "\nYou have no #{state}exhibitions on record."
         end
     end
 
