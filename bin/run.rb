@@ -4,7 +4,9 @@ require_relative '../config/environment'
 #  ui = Interface.new
 # ui.run
 user = User.all[0]
-ui = UserEditMenu.new(user)
+# ui = UserEditMenu.new(user)
+# ui.run
+ui = UserExhibitionMenu.new(user)
 ui.run
 # cd = UserEditMenu.new(User)
 
