@@ -1,10 +1,9 @@
-class ArtistViewExhibitionsMenu 
+class UserExhibitionViewMenu
 
+    attr_reader :user
 
-    attr_reader :artist
-
-    def initialize(artist)
-        @artist = artist
+    def initialize(user)
+        @user = user
     end
 
     def run
@@ -14,46 +13,41 @@ class ArtistViewExhibitionsMenu
             command = get_user_command
             today_date = Date.today
             if(command == "1")
-                list_exhibitions(artist.get_exhibitions)
+                list_exhibitions(Exhibition.all)
             elsif(command == "2")
-                list_exhibitions(arist.get_previous_exhibitions(today_date), "previous ")
+                list_exhibitions(Exhibition.view_previous_exhibitions(today_date), "previous ")
             elsif(command == "3")
-                list_exhibitions(artist.get_upcoming_exhibitions(today_date), "upcoming ")
+                list_exhibitions(Exhibition.view_upcoming_exhibitions(today_date), "upcoming ")
             elsif(command == "4")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
             end
         end
-            
     end
 
-
-
     def list_exhibitions(arr_exhibitions, state="")
-        #binding.pry
         if(arr_exhibitions.length > 0)
             count = 1
-            puts "\nYour #{state}exhibitions are;"
+            puts "\nThe #{state}exhibitions are;"
             arr_exhibitions.each do |e| 
                 puts "#{count}. #{e.name}"
-                puts "#{self.exhibition_visitor_count(e)} tickets sold"
                 count += 1
             end 
         else
-            puts "\nYou have no #{state}exhibitions on record."
+            puts "\nThe have no #{state}exhibitions on record."
         end
     end
 
     def welcome_message
-        puts "\nWelcome to the view exhibitions menu."
+        puts "\nWelcome to the View Exhibitions Menu."
     end
 
     def command_list
-        puts "\n1. View all your exhibitions."
-        puts "2. View previous exhibitions."
-        puts "3. View upcoming exhibitions."
-        puts "4. Quit to main dashboard."
+        puts "\n1. View all Exhibitions."
+        puts "2. View previous Exhibitions."
+        puts "3. View upcoming Exhibitions."
+        puts "4. Quit to Exhibition main menu."
     end
 
     def get_user_command
@@ -61,4 +55,4 @@ class ArtistViewExhibitionsMenu
         gets.chomp
     end
 
-
+end

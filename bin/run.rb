@@ -4,6 +4,10 @@ require_relative '../config/environment'
 #  ui = Interface.new
 # ui.run
 user = User.all[0]
+# ui = UserEditMenu.new(user)
+# ui.run
+ui = UserExhibitionSearchMenu.new(user)
+ui.run
 # cd = UserEditMenu.new(User)
 
 #ui = Interface.new
@@ -16,8 +20,8 @@ user = User.all[0]
 # cv = CuratorViewExhibitions.new(curator)
 # cv.run
 
-ce = CuratorCreateMenu.new(curator)
-ce.run
+# ce = CuratorCreateMenu.new(curator)
+# ce.run
 
 
 

@@ -12,7 +12,9 @@ class UserDashboard
             command_list
             command = get_user_command
             if(command == "1")
-                #break
+                edit_menu = UserEditMenu.new(user)
+                edit_menu.run
+                break
             elsif(command == "2")
                 #break
             elsif(command == "3")
@@ -20,6 +22,8 @@ class UserDashboard
             elsif(command == "4")
                 #break
             elsif(command == "5")
+                break
+            elsif(command == "6")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -32,7 +36,8 @@ class UserDashboard
     end
 
     def command_list
-        puts "\n1. View Exhibitions."
+        puts "\n1. Edit Profile."
+        puts "2. Exhibitions Menu"
         puts "2. Search Exhibitions."
         puts "3. Make a Booking."
         puts "4. Search Collaborations"

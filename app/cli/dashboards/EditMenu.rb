@@ -18,6 +18,8 @@ class EditMenu
             elsif(command == "3")
                 change_password
             elsif(command == "4")
+                change_location
+            elsif(command == "5")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -65,6 +67,19 @@ class EditMenu
         end
     end
 
+    def change_location
+        puts "\nChange Location."
+        puts "\nWhat would you like to change your location to?"
+        location = gets.chomp
+        user.location = location
+        user.save
+        if(user.location == location)
+            puts "The password change was successful."
+        else
+            puts "The password change failed."
+        end
+    end
+
     def welcome_message
         puts "\nWelcome to the Edit menu."
     end
@@ -73,7 +88,8 @@ class EditMenu
         puts "\n1. Change name."
         puts "2. Change Username."
         puts "3. Change Password."
-        puts "4. Quit to main dashboard."
+        puts "4. Change Location."
+        puts "5. Quit to main dashboard."
     end
 
     def get_user_command
