@@ -46,4 +46,13 @@ class Curator <  ActiveRecord::Base
         self.find_by(username: username, password: password)
     end
 
+
+    def view_exhibition_visitors(exhibition)
+        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.visitor}
+    end
+
+    def exhibition_visitor_count(exhibition)
+        self.view_exhibition_visitors(exhibition).length
+    end
+
 end
