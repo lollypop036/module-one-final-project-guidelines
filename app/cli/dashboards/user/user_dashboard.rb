@@ -37,7 +37,7 @@ class UserDashboard
 
     def command_list
         puts "\n1. Edit Profile."
-        puts "2. View Exhibitions"
+        puts "2. Exhibitions Menu"
         puts "2. Search Exhibitions."
         puts "3. Make a Booking."
         puts "4. Search Collaborations"
