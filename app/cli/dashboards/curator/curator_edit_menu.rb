@@ -14,7 +14,8 @@ class CuratorEditMenu
 
     def welcome_message
         puts "\nWelcome to the Edit menu."
-
+    end
+    
     def command_list
         puts "1. Change name."
         puts "2. Change Username."
