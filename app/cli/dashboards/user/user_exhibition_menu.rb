@@ -12,6 +12,8 @@ class UserExhibitionMenu
             command_list
             command = get_user_command
             if(command == "1")
+                view_menu = UserExhibitionViewMenu.new(user)
+                view_menu.run
                 break
             elsif(command == "2")
                 break
