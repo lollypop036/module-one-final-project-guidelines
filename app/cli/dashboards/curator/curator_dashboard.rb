@@ -18,7 +18,8 @@ class CuratorDashboard
                 view_menu = CuratorViewExhibitions.new(curator)
                 view_menu.run
             elsif(command == "3")
-                #create exhibition
+                create_menu = CuratorCreateMenu.new(curator)
+                create_menu.run
             elsif(command == "4")
                 #search artists
             elsif(command == "5")
