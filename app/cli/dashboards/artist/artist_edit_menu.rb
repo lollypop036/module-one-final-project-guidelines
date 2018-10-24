@@ -1,4 +1,4 @@
-class ArtistEditMenu < CreateMenu
+class ArtistEditMenu < EditMenu
 
 end
 

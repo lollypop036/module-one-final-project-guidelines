@@ -1,4 +1,4 @@
-class UserEditMenu < CreateMenu
+class UserEditMenu < EditMenu
 
 
 end
