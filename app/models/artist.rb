@@ -21,37 +21,32 @@ class Artist < ActiveRecord::Base
         Collaboration.where("artist_id == ?", self.id)
     end
 
-    def view_all_exhibitions
-        Exhibition.all
-    end
 
-    def create_exhibition(name, date, location, time, style)
+    def create_exhibition(name, date, location, time)
         Exhibition.create(name: name, date: date, location: location, time: time, curator_id: nil, artist_id: self.id, style:self.style)
     end
 
-
-    def search_curators(name)
-        Curator.all.where("curator.name == ?", name)
+    def make_exhibition_booking(exhibition)
+        booking = Booking.create(artist_id: self.id, exhibition_id: exhibition.id, user_id: nil, artist_id:nil, reference_number:SecureRandom.hex(6))
+        puts "Booking complete. Reference number - #{booking.reference_number}."
     end
 
-    
 
-    
-
-
-
+    def view_bookings
+        Booking.all.where("artist_id == ?", self.id)
+    end
 
     #methods for searching and retrieving info for the artist's own exhibitions
     def get_exhibitions
-        Exhibition.all.where(artist_id == self || collaborations.artist_id == self)
+        Exhibition.all.where("artist_id = ?", self.id)
     end
 
-    def get_previous_exhibitions(today_date)
-        get_exhibitions.select{|e| Date.parse(e.date) < today_date}
+    def get_previous_exhibitions
+        get_exhibitions.select{|e| Date.parse(e.date) < Date.today}
     end
 
-    def get_upcoming_exhibitions(today_date)
-        get_exhibitions.select{|e| Date.parse(e.date) > today_date}
+    def get_upcoming_exhibitions
+        get_exhibitions.select{|e| Date.parse(e.date) > Date.today}
     end
 
     def view_exhibition_visitors(exhibition)
@@ -62,18 +57,20 @@ class Artist < ActiveRecord::Base
         self.view_exhibition_visitors(exhibition).length
     end
 
+
+    # class methods
     
     def self.search_by_style(style)
-        self.all.where("self.style == ?", style)
+        self.all.where("style == ?", style)
     end
 
 
     def self.search_by_name(name)
-        self.all.where("self.name == ?", name)
+        self.all.where("name == ?", name)
     end
 
     def self.search_by_location(location)
-        self.all.where("self.location == ?", location)
+        self.all.where("location == ?", location)
     end
     
 
