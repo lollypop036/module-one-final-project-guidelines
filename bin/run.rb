@@ -1,9 +1,15 @@
 require_relative '../config/environment'
 
+
 #  ui = Interface.new
 # ui.run
 user = User.all[0]
 # cd = UserEditMenu.new(User)
+
+#ui = Interface.new
+#ui.run
+# curator = Curator.all[0]
+
 # cd = CuratorDashboard.new(curator)
 
 # cd.run
@@ -12,6 +18,7 @@ user = User.all[0]
 
 ce = CuratorCreateMenu.new(curator)
 ce.run
+
 
 
 # ruby bin/run.rb
