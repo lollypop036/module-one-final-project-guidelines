@@ -1,9 +1,10 @@
-class ArtistEditMenu < CuratorEditMenu
+class ArtistEditMenu
 
 attr_reader :artist
 
 def initialize(artist)
     @artist = artist
+end
 
     def change_name
         puts "\nChange Name."

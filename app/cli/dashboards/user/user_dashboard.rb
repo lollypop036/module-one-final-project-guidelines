@@ -12,13 +12,13 @@ class UserDashboard
             command_list
             command = get_user_command
             if(command == "1")
-                break
+                #break
             elsif(commad == "2")
-                break
+                #break
             elsif(commad == "3")
-                break
+                #break
             elsif(commad == "4")
-                break
+                #break
             elsif(commad == "5")
                 break
             else
