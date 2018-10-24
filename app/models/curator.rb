@@ -13,6 +13,14 @@ class Curator <  ActiveRecord::Base
         Exhibition.where("curator_id = ?", self.id)
     end
 
+    def get_previous_exhibitions(today_date)
+        get_exhibitions.select{|e| Date.parse(e.date) < today_date}
+    end
+
+    def get_upcoming_exhibitions(today_date)
+        get_exhibitions.select{|e| Date.parse(e.date) > today_date}
+    end
+
     def search_for_collaborations
         Collaboration.all
     end
@@ -32,6 +40,10 @@ class Curator <  ActiveRecord::Base
         else
             false
         end
+    end
+
+    def self.get_curator(username, password)
+        self.find_by(username: username, password: password)
     end
 
 end

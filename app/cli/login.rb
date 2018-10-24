@@ -11,8 +11,9 @@ class Login
                 puts artist
                 break
             elsif(is_curator?(username, password))
-                #curator dashboard
-                puts "Curator yes"
+                curator = Curator.get_curator(username, password)
+                dashboard = CuratorDashboard.new(curator) 
+                dashboard.run
                 break
             elsif(is_user?(username, password))
                 #user dashboard

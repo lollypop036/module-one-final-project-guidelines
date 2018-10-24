@@ -14,7 +14,6 @@ class CuratorDashboard
             if(command == "1")
                 edit_menu = CuratorEditMenu.new(curator)
                 edit_menu.run
-                #edit profile
             elsif(command == "2")
                 #view exhibitions
             elsif(command == "3")
