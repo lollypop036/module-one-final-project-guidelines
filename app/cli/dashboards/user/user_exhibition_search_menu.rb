@@ -12,14 +12,40 @@ class UserExhibitionSearchMenu
             command_list
             command = get_user_command
             if(command == "1")
+                search_by_name
             elsif(command == "2")
-            elsif(command == "2")
-            elsif(command == "2")
-            elsif(command == "2")
-            elsif(command == "2")
+                break
+            elsif(command == "3")
+                break
+            elsif(command == "4")
+                break
+            elsif(command == "5")
+                break
+            elsif(command == "6")
+                break
             else
                 puts "The number you entered did not relate to a command, try again."
             end
+        end
+    end
+
+    def search_by_name
+        puts "\nWhat name would you like to search for?"
+        name = gets.chomp
+        result = Exhibition.search_by_name(name)
+        list_exhibitions(result, name)
+    end
+
+    def list_exhibitions(arr_exhibitions, term)
+        if(arr_exhibitions.length > 0)
+            count = 1
+            puts "\nThe exhibitions for search term: #{term} are;"
+            arr_exhibitions.each do |e| 
+                puts "#{count}. #{e.name}"
+                count += 1
+            end 
+        else
+            puts "\nThe have no exhibitions on record for search term: #{term}."
         end
     end
 
@@ -37,7 +63,7 @@ class UserExhibitionSearchMenu
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-3)"
+        puts "\nPlease enter a command number.(1-6)"
         gets.chomp
     end
 
