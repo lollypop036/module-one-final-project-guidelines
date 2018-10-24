@@ -1,4 +1,4 @@
-class CreateMenu
+class EditMenu
 
     attr_reader :user
 

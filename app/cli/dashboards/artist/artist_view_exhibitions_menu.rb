@@ -37,7 +37,7 @@ class ArtistViewExhibitionsMenu
             puts "\nYour #{state}exhibitions are;"
             arr_exhibitions.each do |e| 
                 puts "#{count}. #{e.name}"
-
+                puts "#{self.exhibition_visitor_count(e)} tickets sold"
                 count += 1
             end 
         else
@@ -45,10 +45,21 @@ class ArtistViewExhibitionsMenu
         end
     end
 
+    def welcome_message
+        puts "\nWelcome to the view exhibitions menu."
+    end
 
+    def command_list
+        puts "\n1. View all your exhibitions."
+        puts "2. View previous exhibitions."
+        puts "3. View upcoming exhibitions."
+        puts "4. Quit to main dashboard."
+    end
 
-
-end
+    def get_user_command
+        puts "\nPlease enter a command number.(1-4)"
+        gets.chomp
+    end
 
 end
 

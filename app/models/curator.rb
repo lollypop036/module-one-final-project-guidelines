@@ -55,4 +55,16 @@ class Curator <  ActiveRecord::Base
         self.view_exhibition_visitors(exhibition).length
     end
 
+    
+
+    def self.search_by_name(name)
+        self.all.where("self.name == ?", name)
+    end
+
+    def self.search_by_location(location)
+        self.all.where("self.location == ?", location)
+    end
+
+
+
 end

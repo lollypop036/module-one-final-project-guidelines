@@ -13,13 +13,13 @@ class UserDashboard
             command = get_user_command
             if(command == "1")
                 #break
-            elsif(commad == "2")
+            elsif(command == "2")
                 #break
-            elsif(commad == "3")
+            elsif(command == "3")
                 #break
-            elsif(commad == "4")
+            elsif(command == "4")
                 #break
-            elsif(commad == "5")
+            elsif(command == "5")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
