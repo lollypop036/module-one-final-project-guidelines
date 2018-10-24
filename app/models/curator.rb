@@ -6,7 +6,7 @@ class Curator <  ActiveRecord::Base
     has_many :users, through: :bookings
 
     def create_exhibition(name, date, location, time)
-        Exhibition.create(name: name, date: date, location: location, time: time, curator_id: self.id)
+        Exhibition.create(name: name, date: date, location: location, time: time, artist_id: nil, curator_id: self.id)
     end
 
     def get_exhibitions
@@ -30,7 +30,7 @@ class Curator <  ActiveRecord::Base
     end
 
     def assign_style_to_exhibition(style, exhibition)
-        exhibition.style_id = style.id
+        exhibition.style = style
     end
 
     def self.search_credentials(username, password)
