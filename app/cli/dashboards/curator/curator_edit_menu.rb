@@ -7,10 +7,14 @@ class CuratorEditMenu
     end
 
     def run
+        puts curator.name
+        puts curator.username
+        puts curator.password
+        #binding.pry
         welcome_message
         while(true)
             command_list
-            command = get_user_input
+            command = get_user_command
             if(command == "1")
                 change_name
             elsif(command == "2")
@@ -27,14 +31,42 @@ class CuratorEditMenu
     end
 
     def change_name
-        puts "\nChange Name"
-
+        puts "\nChange Name."
+        puts "\nWhat would you like to change your name to?"
+        name = gets.chomp
+        curator.name = name
+        curator.save
+        if(curator.name == name)
+            puts "The name change was successful."
+        else
+            puts "The name change failed."
+        end
     end
 
     def change_username
+        puts "\nChange Username."
+        puts "\nWhat would you like to change your username to?"
+        username = gets.chomp
+        curator.username = username
+        curator.save
+        if(curator.username == username)
+            puts "The username change was successful."
+        else
+            puts "The username change failed."
+        end
     end
 
     def change_password
+        puts "\nChange Password."
+        puts "\nWhat would you like to change your password to?"
+        password = gets.chomp
+        curator.password = password
+        curator.save
+        if(curator.password == password)
+            puts "The password change was successful."
+        else
+            puts "The password change failed."
+        end
     end
 
     def welcome_message
@@ -48,7 +80,7 @@ class CuratorEditMenu
         puts "4. Quit to main dashboard."
     end
 
-    def get_user_input
+    def get_user_command
         puts "\nPlease enter a command number.(1-4)"
         gets.chomp
     end
