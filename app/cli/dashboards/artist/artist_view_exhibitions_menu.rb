@@ -29,6 +29,7 @@ class ArtistViewExhibitionsMenu
     end
 
 
+
     def list_exhibitions(arr_exhibitions, state="")
         #binding.pry
         if(arr_exhibitions.length > 0)
@@ -36,7 +37,7 @@ class ArtistViewExhibitionsMenu
             puts "\nYour #{state}exhibitions are;"
             arr_exhibitions.each do |e| 
                 puts "#{count}. #{e.name}"
-                puts "#{self.exhibition_visitor_count(e)} tickets sold"
+
                 count += 1
             end 
         else
@@ -48,3 +49,6 @@ class ArtistViewExhibitionsMenu
 
 
 end
+
+end
+

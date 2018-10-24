@@ -18,7 +18,7 @@ class Curator <  ActiveRecord::Base
     end
 
     def get_upcoming_exhibitions(today_date)
-        get_exhibitions.select{|e| Date.parse(e.date) > today_date}
+        get_exhibitions.select{|e| Date.parse(e.date) >= today_date}
     end
 
     def search_for_collaborations
