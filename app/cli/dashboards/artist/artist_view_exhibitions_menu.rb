@@ -50,5 +50,4 @@ class ArtistViewExhibitionsMenu
 
 end
 
-end
 
