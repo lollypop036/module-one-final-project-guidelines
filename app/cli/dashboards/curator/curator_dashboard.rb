@@ -11,8 +11,9 @@ class CuratorDashboard
         while(true)
             command_list
             command = get_user_input
-            #binding.pry
             if(command == "1")
+                edit_menu = CuratorEditMenu.new(curator)
+                edit_menu.run
                 #edit profile
             elsif(command == "2")
                 #view exhibitions
