@@ -4,6 +4,9 @@ class Booking <  ActiveRecord::Base
     belongs_to :artist
     belongs_to :exhibition
 
+
+
+    
     def self.search_by_user_id(id)
         Booking.where("user_id = ?", id)
     end

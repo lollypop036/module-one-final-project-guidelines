@@ -1,5 +1,6 @@
 class ArtistSearchMenu
 
+
     def run
         while(true)
             command_list
@@ -28,13 +29,17 @@ class ArtistSearchMenu
     def search_artists
       
         while(true)
+
             puts "\nPlease choose your search criteria from the options below:"
+
             puts "1. Name"
             puts "2. Location"
             puts "3. Style"
             search = gets.chomp
 
             case search
+
+
                 when "1"
                     puts "\nEnter name"
                     search = gets.chomp
@@ -49,12 +54,14 @@ class ArtistSearchMenu
                     puts "\nEnter style"
                     search = gets.chomp
                     list_artists(Artist.search_by_style(search))
+
                     break
                 else
                 "Please enter a valid number"
             end
         end
      end
+
 
      def list_artists(artists)
         if artists.length > 0
@@ -71,4 +78,5 @@ class ArtistSearchMenu
             puts "\nNo artists were found."
         end
      end
+
 end
