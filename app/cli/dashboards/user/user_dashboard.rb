@@ -23,8 +23,6 @@ class UserDashboard
                 break
             elsif(command == "5")
                 break
-            elsif(command == "6")
-                break
             else
                 puts "The number you entered did not relate to a command, try again."
             end
@@ -38,9 +36,8 @@ class UserDashboard
     def command_list
         puts "\n1. Edit Profile."
         puts "2. Exhibitions Menu"
-        puts "3. Make a Booking."
-        puts "4. Search Collaborations"
-        puts "5. Sign Out."
+        puts "3. Search Collaborations"
+        puts "4. Sign Out."
     end
 
     def get_user_command
