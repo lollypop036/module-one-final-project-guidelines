@@ -14,13 +14,13 @@ class UserDashboard
             if(command == "1")
                 edit_menu = UserEditMenu.new(user)
                 edit_menu.run
-                break
             elsif(command == "2")
-                #break
+                exhibition_menu = UserExhibitionMenu.new(user)
+                exhibition_menu.run
             elsif(command == "3")
-                #break
+                break
             elsif(command == "4")
-                #break
+                break
             elsif(command == "5")
                 break
             elsif(command == "6")
@@ -32,13 +32,12 @@ class UserDashboard
     end
 
     def welcome_message
-        puts "Welcome User #{user.first_name} #{user.last_name}."
+        puts "Welcome User #{user.name}"
     end
 
     def command_list
         puts "\n1. Edit Profile."
         puts "2. Exhibitions Menu"
-        puts "2. Search Exhibitions."
         puts "3. Make a Booking."
         puts "4. Search Collaborations"
         puts "5. Sign Out."

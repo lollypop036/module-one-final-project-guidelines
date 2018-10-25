@@ -89,6 +89,7 @@ end
         puts "\nPlease enter a command number.(1-4)"
         gets.chomp
     end
+end
 
 
 end
