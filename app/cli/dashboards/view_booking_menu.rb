@@ -25,24 +25,35 @@ class ViewBookingMenu
     end
 
     def delete_booking
-        puts "\nWhich booking would you like to delete?(select by booking number)"
-        id = gets.chomp
-        bookings[id.to_i - 1].destroy
-        puts "Booking has been deleted."
+        if(bookings.length == 1)
+            bookings[0].destroy
+            puts "\nBooking has been deleted."
+        elsif(bookings.length == 0)
+            puts "\nYou have no bookings."
+        else
+            puts "\nWhich booking would you like to delete?(select by booking number)"
+            id = gets.chomp
+            bookings[id.to_i - 1].destroy
+            puts "Booking has been deleted."
+        end
     end
 
     def list_bookings
         get_bookings
-        count = 1
-        bookings.each do |x|  
-            exhibition = Exhibition.find(x.exhibition_id)
-            puts "\nBooking #{count}."
-            puts "------------------------"
-            puts "#{exhibition.name} - Details" 
-            puts "Date: #{exhibition.date}"
-            puts "Location: #{exhibition.location}"
-            puts "Style: #{exhibition.style}"
-            count += 1
+        if bookings.length > 0
+            count = 1
+            bookings.each do |x|  
+                exhibition = Exhibition.find(x.exhibition_id)
+                puts "\nBooking #{count}."
+                puts "------------------------"
+                puts "#{exhibition.name} - Details" 
+                puts "Date: #{exhibition.date}"
+                puts "Location: #{exhibition.location}"
+                puts "Style: #{exhibition.style}"
+                count += 1
+            end
+        else
+            puts "\nYou have no bookings on record."
         end
     end
 
