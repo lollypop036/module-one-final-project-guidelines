@@ -9,10 +9,10 @@ a2 = Artist.create(name: "Jimmy", location: "Tokyo", username: "jimmy", password
 a3 = Artist.create(name: "Bella", location: "Milan", username: "bella", password: "admin", style:"style")
 
 #Exhibitions
-ex1 = Exhibition.create(name: "World Wonders", date: "01/12/2018", location: "Tokyo", time: "10:00 - 18:00", curator_id: 1)
-ex2 = Exhibition.create(name: "Life", date: "01/12/2018", location: "London", time: "10:00 - 16:00", curator_id: 1)
-ex3 = Exhibition.create(name: "Long days", date: "09/09/2018", location: "London", time: "13:00 - 18:00", curator_id: 2)
-ex4 = Exhibition.create(name: "Darkness", date: "22/10/2018", location: "Paris", time: "19:00 - 21:00", curator_id: 2)
+ex1 = Exhibition.create(name: "World Wonders", date: "01/12/2018", location: "Tokyo", time: "10:00 - 18:00", style:"jazz", curator_id: 1)
+ex2 = Exhibition.create(name: "Life", date: "01/12/2018", location: "London", time: "10:00 - 16:00", style:"sketch", curator_id: 2)
+ex3 = Exhibition.create(name: "Long days", date: "09/09/2018", location: "London", time: "13:00 - 18:00", style:"paint", artist_id: 1)
+ex4 = Exhibition.create(name: "Darkness", date: "22/10/2018", location: "Paris", time: "19:00 - 21:00", style:"wax", artist_id: 2)
 
 #Collaborations
 co1 = Collaboration.create()

@@ -26,6 +26,10 @@ class Exhibition <  ActiveRecord::Base
         self.all.where("location = ?", location)
     end
 
+    def self.search_by_artist_id(id)
+        self.all.where("artist_id = ?", id)
+    end
+
     def self.search_by_date(date)
         self.all.where("date = ?", date)
     end

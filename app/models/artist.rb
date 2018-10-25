@@ -10,11 +10,14 @@ class Artist < ActiveRecord::Base
 
     def self.search_credentials(username, password)
         if self.find_by(username: username, password: password)
-            #self.find_by(username: username, password: password)
             true
         else
             false
         end
+    end
+
+    def self.get_artist(username, password)
+        self.find_by(username: username, password: password)
     end
 
     def view_collaborations
@@ -27,7 +30,7 @@ class Artist < ActiveRecord::Base
     end
 
     def make_exhibition_booking(exhibition)
-        booking = Booking.create(artist_id: self.id, exhibition_id: exhibition.id, user_id: nil, artist_id:nil, reference_number:SecureRandom.hex(6))
+        booking = Booking.create(artist_id: self.id, exhibition_id: exhibition.id, user_id: nil, reference_number:SecureRandom.hex(6))
         puts "Booking complete. Reference number - #{booking.reference_number}."
     end
 
