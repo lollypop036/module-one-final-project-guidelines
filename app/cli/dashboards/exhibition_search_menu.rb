@@ -1,4 +1,4 @@
-class UserExhibitionSearchMenu
+class ExhibitionSearchMenu
 
     attr_reader :user
 
@@ -34,6 +34,8 @@ class UserExhibitionSearchMenu
         location = gets.chomp
         result = Exhibition.where("location = ?", location)
         list_exhibitions(result, location)
+        booking_menu = BookingMenu.new(user, result)
+        booking_menu.run
     end
 
     def search_by_curator
@@ -41,6 +43,8 @@ class UserExhibitionSearchMenu
         curator = gets.chomp
         result = Exhibition.joins(:curator).where("curators.name = ?", curator)
         list_exhibitions(result, curator)
+        booking_menu = BookingMenu.new(user, result)
+        booking_menu.run
     end
 
     def search_by_style
@@ -48,6 +52,8 @@ class UserExhibitionSearchMenu
         style = gets.chomp
         result = Exhibition.search_by_style(style)
         list_exhibitions(result, style)
+        booking_menu = BookingMenu.new(user, result)
+        booking_menu.run
     end
 
     def search_by_artist_name
@@ -55,6 +61,8 @@ class UserExhibitionSearchMenu
         name = gets.chomp
         result = Exhibition.joins(:artist).where("artists.name = ?", name)
         list_exhibitions(result, name)
+        booking_menu = BookingMenu.new(user, result)
+        booking_menu.run
     end
 
     def search_by_exhibition_name
@@ -62,6 +70,8 @@ class UserExhibitionSearchMenu
         name = gets.chomp
         result = Exhibition.search_by_name(name)
         list_exhibitions(result, name)
+        booking_menu = BookingMenu.new(user, result)
+        booking_menu.run
     end
 
     def list_exhibitions(arr_exhibitions, term)
