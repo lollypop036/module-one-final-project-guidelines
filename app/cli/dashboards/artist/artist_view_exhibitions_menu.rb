@@ -34,6 +34,7 @@ class ArtistViewExhibitionsMenu
 
     def list_exhibitions(arr_exhibitions, state="")
         #binding.pry
+        while(true)
         if(arr_exhibitions.length > 0)
             count = 1
             puts "\nYour #{state}exhibitions are;"
@@ -41,22 +42,30 @@ class ArtistViewExhibitionsMenu
                 puts "#{count}. #{e.name} - #{e.date}, #{e.location}"
                 puts "#{artist.exhibition_visitor_count(e)} tickets sold"
                 count += 1
-            end 
+            end
+            
 
-            puts "To view attendees, please enter the name of the exhibition, else press zero to quiy
-            t"
+            puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
+        
             command = gets.chomp
+            
             if command == "0"
                 break
             else
                 if Exhibtion.search_by_name(command) != nil
                  command.view_attendees
+                 break
                 else puts "No attendees"
+                    break
+                end
+            end
 
         else
             puts "\nYou have no #{state}exhibitions on record."
+            break
         end
     end
+end
 
 
     def artist_bookings
@@ -82,3 +91,4 @@ class ArtistViewExhibitionsMenu
     end
 
 
+end
