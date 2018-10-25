@@ -21,11 +21,11 @@ class ArtistDashboard
                 view_menu.run
             elsif(command == "3")
                 #create exhibition
-                create_menu = ArtistCreateMenu.new(artist)
+                create_menu = CreateMenu.new(artist)
                 create_menu.run
             elsif(command == "4")
            #search curators & artists
-                search = ArtistSearchMenu.new(artist)
+                search = ArtistSearchMenu.new
                 search.run
             elsif(command == "5")
                 puts "Goodbye, Artist #{artist.name}"
