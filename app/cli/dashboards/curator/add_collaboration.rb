@@ -28,7 +28,6 @@ class AddCollaboration
             exhibition_id = exhibition_array[selected.to_i - 1].id
             puts "\nWhich artist would you like to add?(enter a name)"
             artist = Artist.search_by_name(gets.chomp)[0]
-            #binding.pry
             Collaboration.create(artist_id: artist.id, exhibition_id: exhibition_id)
             puts "Collaboration creation was successful"
         else
@@ -49,7 +48,7 @@ class AddCollaboration
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-4)"
+        puts "\nPlease enter a command number.(1-2)"
         gets.chomp
     end
 
