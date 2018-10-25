@@ -13,16 +13,7 @@ class BookingMenu
             command_list
             command = get_user_command
             if(command == "1")
-                if user.class == User
-                    make_user_booking
-                    break
-                elsif user.class == Artist
-                    make_artist_booking
-                    break
-                elsif user.class == Curator
-                    make_curator_booking
-                    break
-                end
+                make_booking
             elsif(command == "2")
                 break
             else
@@ -31,42 +22,14 @@ class BookingMenu
         end
     end
 
-    def make_user_booking
+    def make_booking
         if(exhibition_array.length == 1)
-            Booking.create(user_id: user.id, exhibition_id: exhibition_array[0].id)
-            puts "Booking has been made."
+            user.make_exhibition_booking(exhibition_array[0])
         else
             puts "\nWhat exhibition would you like to make a booking for?(select by number)"
             selected = gets.chomp
             index = selected.to_i - 1
-            Booking.create(user_id: user.id, exhibition_id: exhibition_array[index].id)
-            puts "Booking has been made."
-        end
-    end
-    
-    def make_artist_booking
-        if(exhibition_array.length == 1)
-            Booking.create(artist_id: user.id, exhibition_id: exhibition_array[0].id)
-            puts "Booking has been made."
-        else
-            puts "\nWhat exhibition would you like to make a booking for?(select by number)"
-            selected = gets.chomp
-            index = selected.to_i - 1
-            Booking.create(artist_id: user.id, exhibition_id: exhibition_array[index].id)
-            puts "Booking has been made."
-        end
-    end
-
-    def make_curator_booking
-        if(exhibition_array.length == 1)
-            Booking.create(curator_id: user.id, exhibition_id: exhibition_array[0].id)
-            puts "Booking has been made."
-        else
-            puts "\nWhat exhibition would you like to make a booking for?(select by number)"
-            selected = gets.chomp
-            index = selected.to_i - 1
-            Booking.create(curator_id: user.id, exhibition_id: exhibition_array[index].id)
-            puts "Booking has been made."
+            user.make_exhibition_booking(exhibition_array[index])
         end
     end
 
