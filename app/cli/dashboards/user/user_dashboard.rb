@@ -22,7 +22,8 @@ class UserDashboard
             elsif(command == "4")
                 break
             elsif(command == "5")
-                break
+                view_booking_menu = ViewBookingMenu.new(user)
+                view_booking_menu.run
             elsif(command == "6")
                 break
             else
@@ -37,10 +38,11 @@ class UserDashboard
 
     def command_list
         puts "\n1. Edit Profile."
-        puts "2. Exhibitions Menu"
-        puts "3. Make a Booking."
-        puts "4. Search Collaborations"
-        puts "5. Sign Out."
+        puts "2. Exhibitions Menu."
+        puts "3. Artist search Menu."
+        puts "4. Curator search Menu."
+        puts "5. View Bookings."
+        puts "6. Sign Out."
     end
 
     def get_user_command
