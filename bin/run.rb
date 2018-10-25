@@ -1,10 +1,10 @@
 require_relative '../config/environment'
 
 
-#  ui = Interface.new
-# ui.run
-ui = UserDashboard.new(Curator.all[0])
+ ui = Interface.new
 ui.run
+# ui = UserDashboard.new(Curator.all[0])
+# ui.run
 # user = Curator.all[0]
 # vi = BookingMenu.new(user, Exhibition.all)
 # ui = UserBookingMenu.new(user, Exhibition.all)

@@ -1,12 +1,5 @@
 class ArtistSearchMenu
 
-    # attr_reader :user
-
-    # def initialize(user)
-    #     @user = user
-    # end
-
-
     def run
         while(true)
             command_list
