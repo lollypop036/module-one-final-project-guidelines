@@ -12,15 +12,15 @@ class UserExhibitionSearchMenu
             command_list
             command = get_user_command
             if(command == "1")
-                search_by_name
+                search_by_exhibition_name
             elsif(command == "2")
-                break
+                search_by_artist_name
             elsif(command == "3")
-                break
+                search_by_style
             elsif(command == "4")
-                break
+                search_by_curator
             elsif(command == "5")
-                break
+                search_by_location
             elsif(command == "6")
                 break
             else
@@ -29,7 +29,35 @@ class UserExhibitionSearchMenu
         end
     end
 
-    def search_by_name
+    def search_by_location
+        puts "\nWhat Location would you like to search for?"
+        location = gets.chomp
+        result = Exhibition.where("location = ?", location)
+        list_exhibitions(result, location)
+    end
+
+    def search_by_curator
+        puts "\nWhat Curator would you like to search for?"
+        curator = gets.chomp
+        result = Exhibition.joins(:curator).where("curators.name = ?", curator)
+        list_exhibitions(result, curator)
+    end
+
+    def search_by_style
+        puts "\nWhat style would you like to search for?"
+        style = gets.chomp
+        result = Exhibition.search_by_style(style)
+        list_exhibitions(result, style)
+    end
+
+    def search_by_artist_name
+        puts "\nWhat Artist would you like to search for?"
+        name = gets.chomp
+        result = Exhibition.joins(:artist).where("artists.name = ?", name)
+        list_exhibitions(result, name)
+    end
+
+    def search_by_exhibition_name
         puts "\nWhat name would you like to search for?"
         name = gets.chomp
         result = Exhibition.search_by_name(name)

@@ -5,7 +5,6 @@ class Login
             username = get_username
             password = get_password
             if(is_artists?(username, password))
-                #artist dashboard
                 artist = Artist.get_artist(username, password)
                 puts "Artist yes"
                 puts artist
@@ -16,7 +15,9 @@ class Login
                 dashboard.run
                 break
             elsif(is_user?(username, password))
-                #user dashboard
+                user = User.get_user(username, password)
+                dashboard = UserDashboard.new(user)
+                dashboard.run
                 puts "User yes"
                 break
             elsif(username == "exit" || password == "exit")

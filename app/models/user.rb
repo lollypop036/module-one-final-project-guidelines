@@ -30,11 +30,14 @@ class User <  ActiveRecord::Base
 
     def self.search_credentials(username, password)
         if self.find_by(username: username, password: password)
-            #self.find_by(username: username, password: password)
             true
         else
             false
         end
+    end
+
+    def self.get_user(username, password)
+        self.find_by(username: username, password: password)
     end
 
 

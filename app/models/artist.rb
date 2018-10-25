@@ -10,11 +10,14 @@ class Artist < ActiveRecord::Base
 
     def self.search_credentials(username, password)
         if self.find_by(username: username, password: password)
-            #self.find_by(username: username, password: password)
             true
         else
             false
         end
+    end
+
+    def self.get_artist(username, password)
+        self.find_by(username: username, password: password)
     end
 
     def view_collaborations
@@ -64,16 +67,16 @@ class Artist < ActiveRecord::Base
 
     
     def self.search_by_style(style)
-        self.all.where("self.style == ?", style)
+        self.all.where("style == ?", style)
     end
 
 
     def self.search_by_name(name)
-        self.all.where("self.name == ?", name)
+        self.all.where("name == ?", name)
     end
 
     def self.search_by_location(location)
-        self.all.where("self.location == ?", location)
+        self.all.where("location == ?", location)
     end
     
 

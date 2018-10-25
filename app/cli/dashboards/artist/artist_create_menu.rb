@@ -50,3 +50,4 @@ class ArtistCreateMenu
         puts "\n1. Create new Exhibition."
         puts "2. Quit to main dashboard."
     end
+end
