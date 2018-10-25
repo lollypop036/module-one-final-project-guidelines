@@ -45,12 +45,12 @@ class ArtistDashboard
         puts "\n1. Edit profile."
         puts "2. View your Exhibitions."
         puts "3. Create a new Exhibition."
-        puts "4. Search People."
+        puts "4. Explore"
         puts "5. Sign Out."
     end
 
     def get_user_input
-        puts "\nPlease enter a command number.(1-6)"
+        puts "\nPlease enter a command number.(1-5)"
         gets.chomp
     end
 

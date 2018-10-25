@@ -20,6 +20,8 @@ class ArtistViewExhibitionsMenu
             elsif(command == "3")
                 list_exhibitions(artist.get_upcoming_exhibitions, "upcoming ")
             elsif(command == "4")
+                artist_bookings
+            elsif(command == "5")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -40,9 +42,26 @@ class ArtistViewExhibitionsMenu
                 puts "#{artist.exhibition_visitor_count(e)} tickets sold"
                 count += 1
             end 
+
+            puts "To view attendees, please enter the name of the exhibition, else press zero to quiy
+            t"
+            command = gets.chomp
+            if command == "0"
+                break
+            else
+                if Exhibtion.search_by_name(command) != nil
+                 command.view_attendees
+                else puts "No attendees"
+
         else
             puts "\nYou have no #{state}exhibitions on record."
         end
+    end
+
+
+    def artist_bookings
+        puts "Your Bookings"
+        artist.view_bookings
     end
 
     def welcome_message
@@ -53,6 +72,7 @@ class ArtistViewExhibitionsMenu
         puts "\n1. View all your exhibitions."
         puts "2. View previous exhibitions."
         puts "3. View upcoming exhibitions."
+        puts "4. View your exhibition bookings"
         puts "4. Return to main dashboard."
     end
 
