@@ -31,12 +31,15 @@ class CuratorSearchMenu
     def search_curators
         
         while(true)
+
             puts "\nPlease choose your search criteria from the options below:"
+
             puts "1. Name"
             puts "2. Location"
             search = gets.chomp
 
             case search
+
                 when "1"
                     puts "\nEnter name"
                     search = gets.chomp
@@ -46,12 +49,14 @@ class CuratorSearchMenu
                     puts "\nEnter location"
                     search = gets.chomp
                     list_artists(Curator.search_by_location(search))
+
                     break
                 else
                 "Please enter a valid number"
             end
         end
      end
+
 
      def list_artists(curators)
         if curators.length > 0
@@ -67,5 +72,4 @@ class CuratorSearchMenu
             puts "\nNo curators were found."
         end
      end
-
 end

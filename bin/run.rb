@@ -7,7 +7,7 @@ ui.run
 # ui.run
 # user = Curator.all[0]
 # vi = BookingMenu.new(user, Exhibition.all)
-# ui = UserBookingMenu.new(user, Exhibition.all)
+<
 # vi.run
 # ui = UserEditMenu.new(user)
 # ui.run
@@ -24,9 +24,9 @@ ui.run
 # cd.run
 # cv = CuratorViewExhibitions.new(curator)
 # cv.run
-# artist = Artist.all[0]
-# art = ArtistDashboard.new(artist)
-# art.run
+artist = Artist.all[2]
+art = ArtistDashboard.new(artist)
+ art.run
 
 # ce = CuratorCreateMenu.new(curator)
 # ce.run
