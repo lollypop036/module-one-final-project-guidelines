@@ -1,4 +1,4 @@
-class UserExhibitionMenu
+class ExhibitionMenu
 
     attr_reader :user
 

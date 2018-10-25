@@ -21,7 +21,8 @@ class UserDashboard
                 artist_menu = ArtistSearchMenu.new
                 artist_menu.run
             elsif(command == "4")
-                break
+                curator_menu = CuratorSearchMenu.new
+                curator_menu.run
             elsif(command == "5")
                 view_booking_menu = ViewBookingMenu.new(user)
                 view_booking_menu.run

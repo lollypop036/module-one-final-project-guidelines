@@ -64,11 +64,11 @@ class Curator <  ActiveRecord::Base
 
 
     def self.search_by_name(name)
-        self.all.where("self.name == ?", name)
+        self.all.where("name == ?", name)
     end
 
     def self.search_by_location(location)
-        self.all.where("self.location == ?", location)
+        self.all.where("location == ?", location)
     end
 
 

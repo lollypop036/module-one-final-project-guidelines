@@ -31,25 +31,41 @@ class CuratorSearchMenu
     def search_curators
         
         while(true)
-            puts "Please choose your search criteria from the options below:"
+            puts "\nPlease choose your search criteria from the options below:"
             puts "1. Name"
             puts "2. Location"
             search = gets.chomp
 
             case search
-                when 1
-                    puts "Enter name"
+                when "1"
+                    puts "\nEnter name"
                     search = gets.chomp
-                    Curator.search_by_name(search)
+                    list_artists(Curator.search_by_name(search))
                     break
-                when 2
-                    puts "Enter location"
+                when "2"
+                    puts "\nEnter location"
                     search = gets.chomp
-                    Curator.search_by_location(search)
+                    list_artists(Curator.search_by_location(search))
                     break
                 else
                 "Please enter a valid number"
             end
         end
      end
+
+     def list_artists(curators)
+        if curators.length > 0
+            count = 1
+            curators.each do |x|  
+                puts "\nCurator #{count}."
+                puts "------------------------"
+                puts "Name: #{x.name}"
+                puts "Location: #{x.location}"
+                count += 1
+            end
+        else
+            puts "\nNo curators were found."
+        end
+     end
+
 end
