@@ -15,7 +15,7 @@ class UserDashboard
                 edit_menu = UserEditMenu.new(user)
                 edit_menu.run
             elsif(command == "2")
-                exhibition_menu = UserExhibitionMenu.new(user)
+                exhibition_menu = ExhibitionMenu.new(user)
                 exhibition_menu.run
             elsif(command == "3")
                 break
