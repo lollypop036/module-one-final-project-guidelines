@@ -15,7 +15,6 @@ class Interface
             elsif(command == "g")
                 guest_dashboard = GuestDashboard.new
                 guest_dashboard.run
-                break
             elsif(command == "q")
                 puts "Thank you, Good-bye!"
                 break

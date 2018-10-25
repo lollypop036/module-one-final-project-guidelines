@@ -32,8 +32,7 @@ class EditMenu
         puts "\nChange Name."
         puts "\nWhat would you like to change your name to?"
         name = gets.chomp
-        user.name = name
-        user.save
+        user.update(:name => name)
         if(user.name == name)
             puts "The name change was successful."
         else
@@ -45,8 +44,7 @@ class EditMenu
         puts "\nChange Username."
         puts "\nWhat would you like to change your username to?"
         username = gets.chomp
-        user.username = username
-        user.save
+        user.update(:username => username)
         if(user.username == username)
             puts "The username change was successful."
         else
@@ -58,8 +56,7 @@ class EditMenu
         puts "\nChange Password."
         puts "\nWhat would you like to change your password to?"
         password = gets.chomp
-        user.password = password
-        user.save
+        user.update(:password => password)
         if(user.password == password)
             puts "The password change was successful."
         else
@@ -71,8 +68,7 @@ class EditMenu
         puts "\nChange Location."
         puts "\nWhat would you like to change your location to?"
         location = gets.chomp
-        user.location = location
-        user.save
+        user.update(:location => location)
         if(user.location == location)
             puts "The password change was successful."
         else
