@@ -34,7 +34,18 @@ class Exhibition <  ActiveRecord::Base
         self.all.where("date = ?", date)
     end
     
-
+    def view_attendees
+       booking =  Booking.all.where("exhibition_id == ?", self.id)
+       booking.each do
+        |x| if x.user != nil 
+            puts "#{x.user.name}" 
+            elsif x.curator !=nil
+                 puts "#{x.curator.name}" 
+            else 
+                puts "#{x.artist.name}"
+            end
+        end
+    end
 
         def self.search_by_location(location)
             self.all.where("location == ?", location)

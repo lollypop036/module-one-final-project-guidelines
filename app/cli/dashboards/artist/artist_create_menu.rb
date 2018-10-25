@@ -52,3 +52,4 @@ class ArtistCreateMenu
     end
 
 end
+
