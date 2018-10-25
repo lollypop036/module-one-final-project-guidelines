@@ -3,8 +3,8 @@ class ArtistCreateMenu
 
     attr_reader :artist
 
-    def initialize(curator)
-        @curator = curator
+    def initialize(artist)
+        @artist = artist
     end
 
     def run
@@ -50,4 +50,9 @@ class ArtistCreateMenu
         puts "\n1. Create new Exhibition."
         puts "2. Quit to main dashboard."
     end
+<<<<<<< HEAD
 end
+=======
+
+end
+>>>>>>> 1381d38cd107f123f713e1365726a895b2604e4c
