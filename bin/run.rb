@@ -1,7 +1,9 @@
 require_relative '../config/environment'
 
 
- ui = Interface.new
+#  ui = Interface.new
+# ui.run
+ui = AddCollaboration.new(Exhibition.all)
 ui.run
 # ui = UserDashboard.new(Curator.all[0])
 # ui.run
