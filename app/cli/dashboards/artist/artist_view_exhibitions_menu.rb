@@ -35,47 +35,45 @@ class ArtistViewExhibitionsMenu
     def list_exhibitions(arr_exhibitions, state="")
         #binding.pry
         while(true)
-        if(arr_exhibitions.length > 0)
-            count = 1
-            puts "\nYour #{state}exhibitions are;"
-            arr_exhibitions.each do |e| 
-                puts "#{count}. #{e.name} - #{e.date}, #{e.location}"
-                puts "#{artist.exhibition_visitor_count(e)} tickets sold"
-                count += 1
-            end
-            
-
-            puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
-        
-            command = gets.chomp
-            
-            if command == "0"
-                break
-            else
-                if Exhibtion.search_by_name(command) != nil
-                 command.view_attendees
-                 break
-                else puts "No attendees"
-                    break
+            if(arr_exhibitions.length > 0)
+                count = 1
+                puts "\n#{state.capitalize} Exhibitions"
+                arr_exhibitions.each do |e| 
+                    puts "#{count}. #{e.name} - #{e.date}, #{e.location}"
+                    puts "#{artist.exhibition_visitor_count(e)} tickets sold"
+                    count += 1
                 end
+            
+                puts "To view attendees, please enter the number of the exhibition, else press zero to quit"
+        
+                command = gets.chomp
+                while(true)
+                    if command == "0"
+                        break
+                    elsif command.to_i > 0
+                        arr_exhibitions[command.to_i-1].view_attendees
+                        break
+                    elsif command.to_1 < 0 
+                        puts "No attendees"
+                        break
+                    else
+                        puts "Please enter a valid command."
+                    end
+                end
+                
+            else
+                puts "\nYou have no #{state}exhibitions on record."
+                break
             end
-
-        else
-            puts "\nYou have no #{state}exhibitions on record."
-            break
         end
     end
-end
 
 
-    def artist_bookings
-        puts "Your Bookings"
-        artist.view_bookings
-    end
-
+    
     def welcome_message
         puts "\nWelcome to the view exhibitions menu."
     end
+
 
     def command_list
         puts "\n1. View all your exhibitions."
@@ -85,11 +83,10 @@ end
         puts "4. Return to main dashboard."
     end
 
+    
     def get_user_command
         puts "\nPlease enter a command number.(1-4)"
         gets.chomp
     end
-end
-
 
 end
