@@ -18,13 +18,18 @@ class CuratorDashboard
                 view_menu = CuratorViewExhibitions.new(curator)
                 view_menu.run
             elsif(command == "3")
-                create_menu = CuratorCreateMenu.new(curator)
+                create_menu = CreateMenu.new(curator)
                 create_menu.run
             elsif(command == "4")
-                #search artists
+                artist_menu = ArtistSearchMenu.new
+                artist_menu.run
             elsif(command == "5")
-                #search collabs
+                curator_menu = CuratorSearchMenu.new
+                curator_menu.run
             elsif(command == "6")
+                exhibition_menu = ExhibitionMenu.new(curator)
+                exhibition_menu.run
+            elsif(command == "7")
                 puts "Goodbye, Curator #{curator.name}"
                 break
             else
@@ -43,8 +48,9 @@ class CuratorDashboard
         puts "2. View your Exhibitions."
         puts "3. Create a new Exhibition."
         puts "4. Search Artists."
-        puts "5. Search Collaborations."
-        puts "6. Sign Out."
+        puts "5. Search Curators."
+        puts "6. Exhibitions Menu."
+        puts "7. Sign Out."
     end
 
     def get_user_input

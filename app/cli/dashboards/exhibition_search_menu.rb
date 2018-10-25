@@ -11,7 +11,6 @@ class ExhibitionSearchMenu
         while(true)
             command_list
             command = get_user_command
-            #binding.pry
             if(command == "1")
                 search_by_exhibition_name
             elsif(command == "2")

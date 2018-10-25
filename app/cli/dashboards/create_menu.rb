@@ -1,9 +1,9 @@
-class CuratorCreateMenu
+class CreateMenu
 
-    attr_reader :curator
+    attr_reader :user
 
-    def initialize(curator)
-        @curator = curator
+    def initialize(user)
+        @user = user
     end
 
     def run
@@ -31,7 +31,7 @@ class CuratorCreateMenu
         location = gets.chomp
         puts "What is the time?"
         time = gets.chomp
-        exhibition = curator.create_exhibition(title, date, location, time)
+        exhibition = user.create_exhibition(title, date, location, time)
         puts "\nYou have create an exhibition, details below;"
         puts "title: #{exhibition.name}, date: #{exhibition.date}, location: #{exhibition.location}, time: #{exhibition.time}"
     end
