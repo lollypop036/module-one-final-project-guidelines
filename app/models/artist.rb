@@ -47,11 +47,13 @@ class Artist < ActiveRecord::Base
     end
 
     def get_previous_exhibitions
-        get_exhibitions.select{|e| Date.parse(e.date) < Date.today}
+        today_date = Date.today
+        get_exhibitions.select{|e| Date.parse(e.date) < today_date}
     end
 
     def get_upcoming_exhibitions
-        get_exhibitions.select{|e| Date.parse(e.date) > Date.today}
+        today_date = Date.today
+        get_exhibitions.select{|e| Date.parse(e.date) >= today_date}
     end
 
     def view_exhibition_visitors(exhibition)

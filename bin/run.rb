@@ -3,10 +3,10 @@ require_relative '../config/environment'
 
 #  ui = Interface.new
 # ui.run
-user = Curator.all[0]
-vi = BookingMenu.new(user, Exhibition.all)
-# ui = UserBookingMenu.new(user, Exhibition.all)
-vi.run
+# user = Curator.all[0]
+# vi = BookingMenu.new(user, Exhibition.all)
+# # ui = UserBookingMenu.new(user, Exhibition.all)
+# vi.run
 # ui = UserEditMenu.new(user)
 # ui.run
 # ui = UserExhibitionSearchMenu.new(user)
@@ -22,9 +22,9 @@ vi.run
 # cd.run
 # cv = CuratorViewExhibitions.new(curator)
 # cv.run
-# artist = Artist.all[0]
-# art = ArtistDashboard.new(artist)
-# art.run
+artist = Artist.all[2]
+art = ArtistDashboard.new(artist)
+ art.run
 
 # ce = CuratorCreateMenu.new(curator)
 # ce.run

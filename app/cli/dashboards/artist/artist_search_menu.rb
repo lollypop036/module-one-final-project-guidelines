@@ -1,48 +1,48 @@
 class ArtistSearchMenu
 
-    def run
-        welcome_message
-        while(true)
-            command_list
-            command = get_user_command
-            today_date = Date.today
-            if(command == "1")
-               search = ArtistSearchMenu.new
-               search.run
-            elsif(command == "2")
-                search = CuratorSearchMenu.new
-                search.run
-            elsif(command == "3")
-                #find collabs
-            elsif(command == "4")
-                search = ExhibitionSearchMenu.new
-                search.run
-            elsif(command == "5")
-                break
-            else
-                puts "The number you entered did not relate to a command, try again."
-            end
-        end
+    # def run
+    #     welcome_message
+    #     while(true)
+    #         command_list
+    #         command = get_user_command
+    #         today_date = Date.today
+    #         if(command == "1")
+    #            search = ArtistSearchMenu.new
+    #            search.run
+    #         elsif(command == "2")
+    #             search = CuratorSearchMenu.new
+    #             search.run
+    #         elsif(command == "3")
+    #             #find collabs
+    #         elsif(command == "4")
+    #             search = ExhibitionSearchMenu.new
+    #             search.run
+    #         elsif(command == "5")
+    #             break
+    #         else
+    #             puts "The number you entered did not relate to a command, try again."
+    #         end
+    #     end
             
-    end
+    # end
 
-    def welcome_message
-        puts "\ Discover people and build a network around the globe."
-    end
+    # def welcome_message
+    #     puts "\ Discover people and build a network around the globe."
+    # end
 
 
-    def command_list
-        puts "\n1. Search artists"
-        puts "2. Search curators"
-        puts "3. Find collaborations"
-        puts "4 Find exhbitions"
-        puts "5. Quit to main dashboard."
-    end
+    # def command_list
+    #     puts "\n1. Search artists"
+    #     puts "2. Search curators"
+    #     puts "3. Find collaborations"
+    #     puts "4 Find exhbitions"
+    #     puts "5. Quit to main dashboard."
+    # end
 
-    def get_user_command
-        puts "\nPlease enter a command number.(1-5)"
-        gets.chomp
-    end
+    # def get_user_command
+    #     puts "\nPlease enter a command number.(1-5)"
+    #     gets.chomp
+    # end
 
 
 

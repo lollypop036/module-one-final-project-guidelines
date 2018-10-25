@@ -11,8 +11,9 @@ class ArtistViewExhibitionsMenu
         welcome_message
         while(true)
             command_list
+            
             command = get_user_command
-            today_date = Date.today
+            
             if(command == "1")
                 list_exhibitions(artist.get_exhibitions)
             elsif(command == "2")
@@ -36,30 +37,36 @@ class ArtistViewExhibitionsMenu
         #binding.pry
         while(true)
             if(arr_exhibitions.length > 0)
-                count = 1
+                
                 puts "\n#{state.capitalize} Exhibitions"
                 arr_exhibitions.each do |e| 
-                    puts "#{count}. #{e.name} - #{e.date}, #{e.location}"
+                    puts "#{arr_exhibitions.index(e)+1}. #{e.name} - #{e.date}, #{e.location}"
                     puts "#{artist.exhibition_visitor_count(e)} tickets sold"
-                    count += 1
+                    
                 end
             
-                puts "To view attendees, please enter the number of the exhibition, else press zero to quit"
+                puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
         
                 command = gets.chomp
-                while(true)
+
+                #  while(true)
                     if command == "0"
                         break
-                    elsif command.to_i > 0
-                        arr_exhibitions[command.to_i-1].view_attendees
-                        break
-                    elsif command.to_1 < 0 
-                        puts "No attendees"
-                        break
+                    elsif Exhibition.search_by_name(command).length != 0
+                        exhibition = Exhibition.search_by_name(command)[0]
+                        if Booking.all.where("exhibition_id == ?", exhibition.id).length > 0
+                            exhibition.view_attendees
+                            break
+                        else 
+                            puts "No attendees"
+                            break
+                        end
                     else
-                        puts "Please enter a valid command."
+                        puts "Invalid response."
+                        
                     end
-                end
+                    
+                #  end
                 
             else
                 puts "\nYou have no #{state}exhibitions on record."
