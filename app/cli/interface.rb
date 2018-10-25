@@ -13,9 +13,8 @@ class Interface
                 puts "Would "
                 break
             elsif(command == "g")
-                #continue as guest
-                puts "g"
-                break
+                guest_dashboard = GuestDashboard.new
+                guest_dashboard.run
             elsif(command == "q")
                 puts "Thank you, Good-bye!"
                 break

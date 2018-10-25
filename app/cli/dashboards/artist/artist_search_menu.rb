@@ -1,5 +1,6 @@
 class ArtistSearchMenu
 
+
     # def run
     #     welcome_message
     #     while(true)
@@ -29,7 +30,6 @@ class ArtistSearchMenu
     # def welcome_message
     #     puts "\ Discover people and build a network around the globe."
     # end
-
 
     # def command_list
     #     puts "\n1. Search artists"
@@ -61,25 +61,31 @@ class ArtistSearchMenu
 #                 search = gets.chomp
 #                 Artist.search_by_name(search)
 
+
+#     def search_artists
+#         puts "Please choose your search criteria from the options below:"
+#         puts "1. Name"
+#         puts "2. Location"
+#         puts "3. Style"
+
+#         search = gets.chomp
+#         while(true)
+#             case search
+#             when 1
+#                 puts "Enter name"
+#                 search = gets.chomp
+#                 Artist.search_by_name(search)
+
 #             when 2
 #                 puts "Enter location"
 #                 search = gets.chomp
 #                 Artist.search_by_location(search)
 
+
 #             when 3
 #                 puts "Enter style"
 #                 search = gets.chomp
 #                 Artist.search_by_style(search)
-
-#             else
-#                 "Please enter a valid number"
-#             end
-
-#     end
-
-
-#     end
-
 
 #     def search_curators
 #         puts "Please choose your search criteria from the options below:"
@@ -112,7 +118,6 @@ class ArtistSearchMenu
 
 
 
-    
-
+   
 
  end

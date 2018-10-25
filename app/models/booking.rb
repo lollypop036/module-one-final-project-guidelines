@@ -19,5 +19,4 @@ class Booking <  ActiveRecord::Base
         Booking.where("curator_id = ?", id)
     end
 
-
 end

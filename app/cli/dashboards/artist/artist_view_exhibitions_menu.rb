@@ -34,9 +34,10 @@ class ArtistViewExhibitionsMenu
 
 
     def list_exhibitions(arr_exhibitions, state="")
-        #binding.pry
+        
         while(true)
             if(arr_exhibitions.length > 0)
+
                 
                 puts "\n#{state.capitalize} Exhibitions"
                 arr_exhibitions.each do |e| 
@@ -49,7 +50,7 @@ class ArtistViewExhibitionsMenu
         
                 command = gets.chomp
 
-                #  while(true)
+             
                     if command == "0"
                         break
                     elsif Exhibition.search_by_name(command).length != 0
@@ -66,7 +67,6 @@ class ArtistViewExhibitionsMenu
                         
                     end
                     
-                #  end
                 
             else
                 puts "\nYou have no #{state}exhibitions on record."

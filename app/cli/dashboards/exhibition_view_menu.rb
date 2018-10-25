@@ -1,10 +1,4 @@
-class UserExhibitionViewMenu
-
-    attr_reader :user
-
-    def initialize(user)
-        @user = user
-    end
+class ExhibitionViewMenu
 
     def run
         welcome_message
