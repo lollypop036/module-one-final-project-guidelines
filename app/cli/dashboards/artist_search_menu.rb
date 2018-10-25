@@ -35,31 +35,47 @@ class ArtistSearchMenu
     def search_artists
       
         while(true)
-            puts "Please choose your search criteria from the options below:"
+            puts "\nPlease choose your search criteria from the options below:"
             puts "1. Name"
             puts "2. Location"
             puts "3. Style"
             search = gets.chomp
 
             case search
-                when 1
-                    puts "Enter name"
+                when "1"
+                    puts "\nEnter name"
                     search = gets.chomp
-                    Artist.search_by_name(search)
+                    list_artists(Artist.search_by_name(search))
                     break
-                when 2
-                    puts "Enter location"
+                when "2"
+                    puts "\nEnter location"
                     search = gets.chomp
-                    Artist.search_by_location(search)
+                    list_artists(Artist.search_by_location(search))
                     break
-                when 3
-                    puts "Enter style"
+                when "3"
+                    puts "\nEnter style"
                     search = gets.chomp
-                    Artist.search_by_style(search)
+                    list_artists(Artist.search_by_style(search))
                     break
                 else
                 "Please enter a valid number"
             end
+        end
+     end
+
+     def list_artists(artists)
+        if artists.length > 0
+            count = 1
+            artists.each do |x|  
+                puts "\nArtist #{count}."
+                puts "------------------------"
+                puts "Name: #{x.name}"
+                puts "Location: #{x.location}"
+                puts "Style: #{x.style}"
+                count += 1
+            end
+        else
+            puts "\nNo artists were found."
         end
      end
 end

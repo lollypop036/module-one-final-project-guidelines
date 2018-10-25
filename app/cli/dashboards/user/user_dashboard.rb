@@ -18,7 +18,8 @@ class UserDashboard
                 exhibition_menu = ExhibitionMenu.new(user)
                 exhibition_menu.run
             elsif(command == "3")
-                break
+                artist_menu = ArtistSearchMenu.new
+                artist_menu.run
             elsif(command == "4")
                 break
             elsif(command == "5")
@@ -46,7 +47,7 @@ class UserDashboard
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-5)"
+        puts "\nPlease enter a command number.(1-6)"
         gets.chomp
     end
 
