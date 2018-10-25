@@ -11,6 +11,7 @@ class ExhibitionSearchMenu
         while(true)
             command_list
             command = get_user_command
+            #binding.pry
             if(command == "1")
                 search_by_exhibition_name
             elsif(command == "2")
@@ -34,8 +35,10 @@ class ExhibitionSearchMenu
         location = gets.chomp
         result = Exhibition.where("location = ?", location)
         list_exhibitions(result, location)
-        booking_menu = BookingMenu.new(user, result)
-        booking_menu.run
+        if user != nil
+            booking_menu = BookingMenu.new(user, result)
+            booking_menu.run
+        end
     end
 
     def search_by_curator
@@ -43,8 +46,10 @@ class ExhibitionSearchMenu
         curator = gets.chomp
         result = Exhibition.joins(:curator).where("curators.name = ?", curator)
         list_exhibitions(result, curator)
-        booking_menu = BookingMenu.new(user, result)
-        booking_menu.run
+        if user != nil
+            booking_menu = BookingMenu.new(user, result)
+            booking_menu.run
+        end
     end
 
     def search_by_style
@@ -52,8 +57,10 @@ class ExhibitionSearchMenu
         style = gets.chomp
         result = Exhibition.search_by_style(style)
         list_exhibitions(result, style)
-        booking_menu = BookingMenu.new(user, result)
-        booking_menu.run
+        if user != nil
+            booking_menu = BookingMenu.new(user, result)
+            booking_menu.run
+        end
     end
 
     def search_by_artist_name
@@ -61,8 +68,10 @@ class ExhibitionSearchMenu
         name = gets.chomp
         result = Exhibition.joins(:artist).where("artists.name = ?", name)
         list_exhibitions(result, name)
-        booking_menu = BookingMenu.new(user, result)
-        booking_menu.run
+        if user != nil
+            booking_menu = BookingMenu.new(user, result)
+            booking_menu.run
+        end
     end
 
     def search_by_exhibition_name
@@ -70,8 +79,10 @@ class ExhibitionSearchMenu
         name = gets.chomp
         result = Exhibition.search_by_name(name)
         list_exhibitions(result, name)
-        booking_menu = BookingMenu.new(user, result)
-        booking_menu.run
+        if user != nil
+            booking_menu = BookingMenu.new(user, result)
+            booking_menu.run
+        end
     end
 
     def list_exhibitions(arr_exhibitions, term)

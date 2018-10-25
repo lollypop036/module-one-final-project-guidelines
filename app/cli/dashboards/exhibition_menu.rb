@@ -2,7 +2,7 @@ class ExhibitionMenu
 
     attr_reader :user
 
-    def initialize(user)
+    def initialize(user=nil)
         @user = user
     end
 
@@ -12,11 +12,11 @@ class ExhibitionMenu
             command_list
             command = get_user_command
             if(command == "1")
-                view_menu = UserExhibitionViewMenu.new(user)
+                view_menu = ExhibitionViewMenu.new
                 view_menu.run
                 break
             elsif(command == "2")
-                search_menu = UserExhibitionSearchMenu.new(user)
+                search_menu = ExhibitionSearchMenu.new(user)
                 search_menu.run
                 break
             elsif(command == "3")

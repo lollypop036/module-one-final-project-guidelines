@@ -6,10 +6,18 @@ class GuestDashboard
             list_commands
             command = get_user_command
             if(command == "1")
+                exhibition_menu = ExhibitionMenu.new
+                exhibition_menu.run
             elsif(command == "2")
-            elsif(command == "2")
-            elsif(command == "2")
+                artist_menu = ArtistSearchMenu.new
+                artist_menu.run
+            elsif(command == "3")
+                curator_menu = CuratorSearchMenu.new
+                curator_menu.run
+            elsif(command == "4")
+                break
             else
+                puts "The number you entered did not relate to a command, try again."
             end
         end
     end
