@@ -49,7 +49,7 @@ class ArtistViewExhibitionsMenu
                     
                 end
             
-                puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
+                puts "\nTo view attendees, please enter the name of the exhibition, else press zero to quit"
         
                 command = gets.chomp
 

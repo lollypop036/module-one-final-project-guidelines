@@ -23,7 +23,7 @@ class GuestDashboard
     end
 
     def welcome_message
-        puts "Welcome Guest"
+        puts "\nWelcome Guest"
     end
 
     def list_commands

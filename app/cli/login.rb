@@ -52,12 +52,12 @@ class Login
     end
 
     def get_password
-        puts "Please enter a password.(type exit to quit)"
+        puts "\nPlease enter a password.(type exit to quit)"
         gets.chomp
     end
 
     def get_username
-        puts "Please enter a Username.(type exit to quit)"
+        puts "\nPlease enter a Username.(type exit to quit)"
         gets.chomp
     end
 

@@ -39,7 +39,7 @@ class CuratorDashboard
     end
 
     def welcome_message
-        puts "Welcome Curator #{curator.name}."
+        puts "\nWelcome Curator #{curator.name}."
     end
 
     def command_list

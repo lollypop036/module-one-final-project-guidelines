@@ -36,7 +36,7 @@ class UserDashboard
     end
 
     def welcome_message
-        puts "Welcome User #{user.name}"
+        puts "\nWelcome User #{user.name}"
     end
 
     def command_list
