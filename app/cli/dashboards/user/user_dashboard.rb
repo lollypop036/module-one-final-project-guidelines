@@ -28,29 +28,29 @@ class UserDashboard
                 view_booking_menu = ViewBookingMenu.new(user, prompt)
                 view_booking_menu.run
             elsif(command == "6")
-                puts "Goodbye, User #{user.name}"
+                puts "Goodbye, User #{user.name}".colorize(:white)
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:lred)
             end
         end
     end
 
     def welcome_message
-        puts "\nWelcome User #{user.name}"
+        puts "\nWelcome User #{user.name}".colorize(:white)
     end
 
     def command_list
-        puts "\n1. Edit Profile."
-        puts "2. Exhibitions Menu."
-        puts "3. Artist search Menu."
-        puts "4. Curator search Menu."
-        puts "5. View Bookings."
-        puts "6. Sign Out."
+        puts "\n1. Edit Profile.".colorize(:light_cyan)
+        puts "2. Exhibitions Menu.".colorize(:light_blue)
+        puts "3. Artist search Menu.".colorize(:light_cyan)
+        puts "4. Curator search Menu.".colorize(:light_blue)
+        puts "5. View Bookings.".colorize(:light_cyan)
+        puts "6. Sign Out.".colorize(:light_blue)
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-6)"
+        puts "\nPlease enter a command number.(1-6)".colorize(:white)
         gets.chomp
     end
 

@@ -46,7 +46,7 @@ class ArtistViewExhibitionsMenu
                     
                 end
             
-                puts "\nTo view attendees, please enter the name of the exhibition, else press zero to quit"
+                puts "\nTo view attendees, please enter the name of the exhibition, else press zero to quit".colorize(:light_blue)
         
                 command = gets.chomp
 
@@ -69,15 +69,15 @@ class ArtistViewExhibitionsMenu
                     
                 
             else
-                puts "\nYou have no #{state}exhibitions on record.".colorize(:white)
+                puts "\nYou have no #{state}exhibitions on record.".colorize(:light_cyan)
                 break
             end
         end
     end
 
     def command_list
-        array = ["View all your exhibitions.", "View previous exhibitions.", "View upcoming exhibitions.", "View exhibitions you are collaboration on.", "View your exhibition bookings", "Return to main dashboard."]
-        prompt.select("\nWelcome to the view exhibitions menu.", array)
+        array = ["View all your exhibitions.", "View previous exhibitions.", "View upcoming exhibitions.", "View exhibitions you are collaborating on", "View your exhibition bookings", "Return to main dashboard."]
+        prompt.select("\nYour Exhibitions", array)
     end
 
 end

@@ -9,9 +9,9 @@ class Login
     def run
         while(true)
             puts
-            username = prompt.ask("Please enter a Username.")
+            username = prompt.ask("Please enter a Username.".colorize(:white))
             puts
-            password = prompt.mask("Please enter a Password.")
+            password = prompt.mask("Please enter a Password.".colorize(:white))
             if(is_artists?(username, password))
                 artist = Artist.get_artist(username, password)
                 dashboard = ArtistDashboard.new(artist, prompt)
@@ -30,7 +30,7 @@ class Login
             elsif(username == "exit" || password == "exit")
                 break
             else
-                puts "Username or password is invalid."
+                puts "Username or password is invalid.".colorize(:red)
             end
         end
     end

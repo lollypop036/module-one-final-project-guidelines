@@ -41,11 +41,11 @@ class CuratorViewExhibitions
         if artists.length > 0
             count = 1
             artists.each do |x|  
-                puts "\nArtist #{count}."
-                puts "------------------------"
-                puts "Name: #{x.name}"
-                puts "Location: #{x.location}"
-                puts "Style: #{x.style}"
+                puts "\nArtist #{count}.".colorize(:white)
+                puts "------------------------".colorize(:white)
+                puts "Name: #{x.name}".colorize(:light_cyan)
+                puts "Location: #{x.location}".colorize(:light_blue)
+                puts "Style: #{x.style}".colorize(:light_cyan)
                 count += 1
             end
         else
@@ -96,19 +96,19 @@ class CuratorViewExhibitions
     end
 
     def welcome_message
-        puts "\nWelcome to the view exhibitions menu."
+        puts "\nWelcome to the view exhibitions menu.".colorize(:white)
     end
 
     def command_list
-        puts "\n1. View all your exhibitions."
-        puts "2. View previous exhibitions."
-        puts "3. View upcoming exhibitions."
-        puts "4. View Artist collaboration on exhibition."
-        puts "5. Quit to main dashboard."
+        puts "\n1. View all your exhibitions.".colorize(:light_cyan)
+        puts "2. View previous exhibitions.".colorize(:light_blue)
+        puts "3. View upcoming exhibitions.".colorize(:light_cyan)
+        puts "4. View Artist collaboration on exhibition.".colorize(:light_blue)
+        puts "5. Quit to main dashboard.".colorize(:light_cyan)
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-5)"
+        puts "\nPlease enter a command number.(1-5)".colorize(:white)
         gets.chomp
     end
 

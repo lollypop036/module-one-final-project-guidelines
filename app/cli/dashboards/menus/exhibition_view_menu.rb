@@ -15,7 +15,7 @@ class ExhibitionViewMenu
             elsif(command == "4")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end
@@ -23,29 +23,29 @@ class ExhibitionViewMenu
     def list_exhibitions(arr_exhibitions, state="")
         if(arr_exhibitions.length > 0)
             count = 1
-            puts "\nThe #{state}exhibitions are;"
+            puts "\nThe #{state}exhibitions are;".colorize(:white)
             arr_exhibitions.each do |e| 
-                puts "#{count}. #{e.name}"
+                puts "#{count}. #{e.name}".colorize(:light_cyan)
                 count += 1
             end 
         else
-            puts "\nThe have no #{state}exhibitions on record."
+            puts "\nThe have no #{state}exhibitions on record.".colorize(:light_cyan)
         end
     end
 
     def welcome_message
-        puts "\nWelcome to the View Exhibitions Menu."
+        puts "\nWelcome to the View Exhibitions Menu.".colorize(:white)
     end
 
     def command_list
-        puts "\n1. View all Exhibitions."
-        puts "2. View previous Exhibitions."
-        puts "3. View upcoming Exhibitions."
-        puts "4. Quit to Exhibition main menu."
+        puts "\n1. View all Exhibitions.".colorize(:light_blue)
+        puts "2. View previous Exhibitions.".colorize(:light_cyan)
+        puts "3. View upcoming Exhibitions.".colorize(:light_blue)
+        puts "4. Quit to Exhibition main menu.".colorize(:light_cyan)
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-4)"
+        puts "\nPlease enter a command number.(1-4)".colorize(:white)
         gets.chomp
     end
 

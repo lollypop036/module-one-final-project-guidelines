@@ -23,10 +23,10 @@ class AddCollaboration
 
     def create_collaboration
         if exhibition_array.length > 1 
-            puts "\nWhich exhibition would you like to create a collaboration for?".colorize(:white)
+            puts "\nWhich exhibition would you like to create a collaboration for?".colorize(:light_blue)
             selected = gets.chomp
             exhibition_id = exhibition_array[selected.to_i - 1].id
-            puts "\nWhich artist would you like to add?(enter a name)".colorize(:white)
+            puts "\nWhich artist would you like to add?(enter a name)".colorize(:light_cyan)
             artist = Artist.search_by_name(gets.chomp)[0]
             Collaboration.create(artist_id: artist.id, exhibition_id: exhibition_id)
             puts "Collaboration creation was successful".colorize(:light_green)

@@ -24,14 +24,14 @@ class ViewBookingMenu
     def delete_booking
         if(bookings.length == 1)
             bookings[0].destroy
-            puts "\nBooking has been deleted."
+            puts "\nBooking has been deleted.".colorize(:light_cyan)
         elsif(bookings.length == 0)
-            puts "\nYou have no bookings."
+            puts "\nYou have no bookings.".colorize(:light_blue)
         else
-            puts "\nWhich booking would you like to delete?(select by booking number)"
+            puts "\nWhich booking would you like to delete?(select by booking number)".colorize(:white)
             id = gets.chomp
             bookings[id.to_i - 1].destroy
-            puts "Booking has been deleted."
+            puts "Booking has been deleted.".colorize(:light_cyan)
         end
     end
 
@@ -41,16 +41,16 @@ class ViewBookingMenu
             count = 1
             bookings.each do |x|  
                 exhibition = Exhibition.find(x.exhibition_id)
-                puts "\nBooking #{count}."
-                puts "------------------------"
-                puts "#{exhibition.name} - Details" 
-                puts "Date: #{exhibition.date}"
-                puts "Location: #{exhibition.location}"
-                puts "Style: #{exhibition.style}"
+                puts "\nBooking #{count}.".colorize(:white)
+                puts "------------------------".colorize(:white)
+                puts "#{exhibition.name} - Details" .colorize(:light_blue)
+                puts "Date: #{exhibition.date}".colorize(:light_cyan)
+                puts "Location: #{exhibition.location}".colorize(:light_cyan)
+                puts "Style: #{exhibition.style}".colorize(:light_cyan)
                 count += 1
             end
         else
-            puts "\nYou have no bookings on record."
+            puts "\nYou have no bookings on record.".colorize(:light_cyan)
         end
     end
 

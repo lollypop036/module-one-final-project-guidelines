@@ -16,7 +16,7 @@ class BookingMenu
             elsif(command == "Return to search Menu.")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end

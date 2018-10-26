@@ -30,7 +30,7 @@ class GuestDashboard
         puts "\n1. Exhibitions Menu.".colorize(:light_cyan)
         puts "2. Artist search Menu.".colorize(:light_blue)
         puts "3. Curator search Menu.".colorize(:light_cyan)
-        puts "4. Sign Out.".colorize(:red)
+        puts "4. Sign Out.".colorize(:light_blue)
     end
 
     def get_user_command

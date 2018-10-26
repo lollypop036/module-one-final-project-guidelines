@@ -28,11 +28,6 @@ class ArtistDashboard
             elsif(command == "Sign Out.")
                 puts "Goodbye, Artist #{artist.name}"
                 break
-<<<<<<< HEAD
-            else
-                puts "The number you entered did not relate to a command, try again.".colorize(:red)
-=======
->>>>>>> 025b9483d587e28ef8a5498b924af1b6ffd43ca6
             end
         end
     end
@@ -42,22 +37,8 @@ class ArtistDashboard
     end
 
     def command_list
-<<<<<<< HEAD
-        puts "\nWhat would you like to do?".colorize(:white)
-        puts "\n1. Edit profile.".colorize(:light_blue)
-        puts "2. View your Exhibitions.".colorize(:light_cyan)
-        puts "3. Create a new Exhibition.".colorize(:light_blue)
-        puts "4. Explore".colorize(:light_cyan)
-        puts "5. Sign Out.".colorize(:light_blue)
-    end
-
-    def get_user_input
-        puts "\nPlease enter a command number (1-5) to proceed.".colorize(:white)
-        gets.chomp
-=======
         array = ["Edit profile.", "View your Exhibitions.", "Create a new Exhibition.", "Explore", "Sign Out."]
         prompt.select("\nWhat would you like to do?", array)
->>>>>>> 025b9483d587e28ef8a5498b924af1b6ffd43ca6
     end
 
 end

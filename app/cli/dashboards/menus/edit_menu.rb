@@ -21,25 +21,14 @@ class EditMenu
                 change_location
             elsif(command == "Quit to main dashboard.")
                 break
-<<<<<<< HEAD
-            else
-                puts "The number you entered did not relate to a command, try again.".colorize(:red)
-=======
->>>>>>> 025b9483d587e28ef8a5498b924af1b6ffd43ca6
             end
         end
 
     end
 
     def change_name
-<<<<<<< HEAD
-        puts "\nChange Name.".colorize(:white)
-        puts "\nWhat would you like to change your name to?".colorize(:white)
-        name = gets.chomp
-=======
-        puts "\nChange Name."
+        puts "\nChange Name.".colorize(:light_blue)
         name = prompt.ask("What would you like to change your name to?")
->>>>>>> 025b9483d587e28ef8a5498b924af1b6ffd43ca6
         user.update(:name => name)
         if(user.name == name)
             puts "The name change was successful.".colorize(:green)
@@ -64,20 +53,20 @@ class EditMenu
         password = prompt.ask("What would you like to change your password to?").colorize(:white)
         user.update(:password => password)
         if(user.password == password)
-            puts "The password change was successful."
+            puts "The password change was successful.".colorize(:green)
         else
-            puts "The password change failed."
+            puts "The password change failed.".colorize(:red)
         end
     end
 
     def change_location
-        puts "\nChange Location."
-        location = prompt.ask("What would you like to change your location to?")
+        puts "\nChange Location.".colorize(:light_cyan)
+        location = prompt.ask("What would you like to change your location to?").colorize(:white)
         user.update(:location => location)
         if(user.location == location)
-            puts "The password change was successful."
+            puts "The password change was successful.".colorize(:green)
         else
-            puts "The password change failed."
+            puts "The password change failed.".colorize(:red)
         end
     end
 

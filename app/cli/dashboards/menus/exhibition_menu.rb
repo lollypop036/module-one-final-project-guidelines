@@ -22,23 +22,23 @@ class ExhibitionMenu
             elsif(command == "3")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end
 
     def welcome_message
-        puts "\nWelcome to the Exhibition Menu."
+        puts "\nWelcome to the Exhibition Menu.".colorize(:white)
     end
 
     def command_list
-        puts "\n1. View Exhibitions."
-        puts "2. Search Exhibitions."
-        puts "3. Quit to main dashboard."
+        puts "\n1. View Exhibitions.".colorize(:light_blue)
+        puts "2. Search Exhibitions.".colorize(:light_cyan)
+        puts "3. Quit to main dashboard.".colorize(:light_blue)
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-3)"
+        puts "\nPlease enter a command number.(1-3)".colorize(:white)
         gets.chomp
     end
 

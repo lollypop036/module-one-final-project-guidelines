@@ -1,11 +1,11 @@
 class Interface
 
     def run
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :bright_cyan)
         welcome_message
         while(true)
             array = ["Sign-in.", "Create account.", "Continue as guest.", "Quit."]
-            command = prompt.select("\nWhat would you like to do?", array)
+            command = prompt.select("\nWhat would you like to do?".colorize(:white), array)
             if(command == "Sign-in.")
                 login = Login.new(prompt)
                 login.run
@@ -16,16 +16,16 @@ class Interface
                 guest_dashboard = GuestDashboard.new
                 guest_dashboard.run
             elsif(command == "Quit.")
-                puts "\nThank you, Good-bye!"
+                puts "\nThank you, Good-bye!".colorize(:light_cyan)
                 break
             else
-                puts "Invalid command."
+                puts "Invalid command.".colorize(:red)
             end
         end
     end
 
     def welcome_message
-        puts "Welcome to Art World!"
+        puts "Welcome to Art Goes Out To!".colorize(:white)
     end
 
 end
