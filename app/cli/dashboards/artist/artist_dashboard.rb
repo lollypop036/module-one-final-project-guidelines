@@ -31,26 +31,26 @@ class ArtistDashboard
                 puts "Goodbye, Artist #{artist.name}"
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end
 
     def welcome_message
-        puts "Welcome Artist #{artist.name}."
+        puts "Welcome, Artist #{artist.name}!".colorize(:light_blue)
     end
 
     def command_list
-        puts "\nWhat would you like to do?"
-        puts "\n1. Edit profile."
-        puts "2. View your Exhibitions."
-        puts "3. Create a new Exhibition."
-        puts "4. Explore"
-        puts "5. Sign Out."
+        puts "\nWhat would you like to do?".colorize(:white)
+        puts "\n1. Edit profile.".colorize(:light_blue)
+        puts "2. View your Exhibitions.".colorize(:light_cyan)
+        puts "3. Create a new Exhibition.".colorize(:light_blue)
+        puts "4. Explore".colorize(:light_cyan)
+        puts "5. Sign Out.".colorize(:light_blue)
     end
 
     def get_user_input
-        puts "\nPlease enter a command number.(1-5)"
+        puts "\nPlease enter a command number (1-5) to proceed.".colorize(:white)
         gets.chomp
     end
 

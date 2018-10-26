@@ -28,7 +28,7 @@ class ArtistViewExhibitionsMenu
             elsif(command == "6")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
             
@@ -42,14 +42,14 @@ class ArtistViewExhibitionsMenu
             if(arr_exhibitions.length > 0)
 
                 
-                puts "\n#{state.capitalize} Exhibitions"
+                puts "\n#{state.capitalize} Exhibitions".colorize(:white)
                 arr_exhibitions.each do |e| 
-                    puts "#{arr_exhibitions.index(e)+1}. #{e.name} - #{e.date}, #{e.location}"
-                    puts "#{artist.exhibition_visitor_count(e)} tickets sold"
+                    puts "#{arr_exhibitions.index(e)+1}. #{e.name} - #{e.date}, #{e.location}".colorize(light_blue)
+                    puts "#{artist.exhibition_visitor_count(e)} tickets sold".colorize(:light_cyan)
                     
                 end
             
-                puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
+                puts "To view attendees, please enter the name of the exhibition, else press zero to quit".colorize(:white)
         
                 command = gets.chomp
 
@@ -62,17 +62,17 @@ class ArtistViewExhibitionsMenu
                             exhibition.view_attendees
                             break
                         else 
-                            puts "No attendees"
+                            puts "No attendees".colorize(:light_cyan)
                             break
                         end
                     else
-                        puts "Invalid response."
+                        puts "Invalid response.".colorize(:red)
                         
                     end
                     
                 
             else
-                puts "\nYou have no #{state}exhibitions on record."
+                puts "\nYou have no #{state}exhibitions on record.".colorize(:white)
                 break
             end
         end
@@ -81,22 +81,22 @@ class ArtistViewExhibitionsMenu
 
     
     def welcome_message
-        puts "\nWelcome to the view exhibitions menu."
+        puts "\nWelcome to the view exhibitions menu.".colorize(:white)
     end
 
 
     def command_list
-        puts "\n1. View all your exhibitions."
-        puts "2. View previous exhibitions."
-        puts "3. View upcoming exhibitions."
-        puts "4. View exhibitions you are collaboration on."
-        puts "5. View your exhibition bookings"
-        puts "6. Return to main dashboard."
+        puts "\n1. View all your exhibitions.".colorize(:light_cyan)
+        puts "2. View previous exhibitions.".colorize(light_blue)
+        puts "3. View upcoming exhibitions.".colorize(:light_cyan)
+        puts "4. View exhibitions you are collaboration on.".colorize(:light_blue)
+        puts "5. View your exhibition bookings".colorize(:light_cyan)
+        puts "6. Return to main dashboard.".colorize(:light_blue)
     end
 
     
     def get_user_command
-        puts "\nPlease enter a command number.(1-6)"
+        puts "\nPlease enter a command number.(1-6)".colorize(:white)
         gets.chomp
     end
 

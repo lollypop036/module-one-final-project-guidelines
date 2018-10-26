@@ -22,21 +22,21 @@ class EditMenu
             elsif(command == "5")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
 
     end
 
     def change_name
-        puts "\nChange Name."
-        puts "\nWhat would you like to change your name to?"
+        puts "\nChange Name.".colorize(:white)
+        puts "\nWhat would you like to change your name to?".colorize(:white)
         name = gets.chomp
         user.update(:name => name)
         if(user.name == name)
-            puts "The name change was successful."
+            puts "The name change was successful.".colorize(:green)
         else
-            puts "The name change failed."
+            puts "The name change failed.".colorize(:red)
         end
     end
 
@@ -48,15 +48,15 @@ class EditMenu
         user.update(:username => username)
 
         if(user.username == username)
-            puts "The username change was successful."
+            puts "The username change was successful.".colorize(:green)
         else
-            puts "The username change failed."
+            puts "The username change failed.".colorize(:red)
         end
     end
 
     def change_password
-        puts "\nChange Password."
-        puts "\nWhat would you like to change your password to?"
+        puts "\nChange Password.".colorize(:light_cyan)
+        puts "\nWhat would you like to change your password to?".colorize(:white)
         password = gets.chomp
 
         user.update(:password => password)

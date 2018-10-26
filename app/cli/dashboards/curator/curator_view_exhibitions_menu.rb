@@ -20,19 +20,19 @@ class CuratorViewExhibitions
                 list_exhibitions(curator.get_upcoming_exhibitions(today_date), "upcoming ")
                 collaboration_menu = AddCollaboration.new(curator.get_upcoming_exhibitions(today_date))
             elsif(command == "4")
-                puts "\nWhich exhibition would you like to see the Artists for?"
+                puts "\nWhich exhibition would you like to see the Artists for?".colorize(:white)
                 selected = gets.chomp
                 if(curator.get_exhibitions.length >= selected.to_i)
                     id = curator.get_exhibitions[selected.to_i - 1].id
                     artists = Artist.joins(:collaborations, :exhibitions).where("exhibitions.id = ?", 1)
                     list_artists(artists)
                 else
-                    puts "That command did not relate to an exhibition."
+                    puts "That command did not relate to an exhibition.".colorize(:red)
                 end
             elsif(command == "5")
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end
@@ -49,7 +49,7 @@ class CuratorViewExhibitions
                 count += 1
             end
         else
-            puts "\nNo artists were found."
+            puts "\nNo artists were found.".colorize(:white)
         end
     end
 
@@ -59,14 +59,14 @@ class CuratorViewExhibitions
             if(arr_exhibitions.length > 0)
 
                 
-                puts "\n#{state.capitalize} Exhibitions"
+                puts "\n#{state.capitalize} Exhibitions".colorize(:light_blue)
                 arr_exhibitions.each do |e| 
-                    puts "#{arr_exhibitions.index(e)+1}. #{e.name} - #{e.date}, #{e.location}"
-                    puts "#{curator.exhibition_visitor_count(e)} tickets sold"
+                    puts "#{arr_exhibitions.index(e)+1}. #{e.name} - #{e.date}, #{e.location}".colorize(:light_blue)
+                    puts "#{curator.exhibition_visitor_count(e)} tickets sold".colorize(:light_cyan)
                     
                 end
             
-                puts "To view attendees, please enter the name of the exhibition, else press zero to quit"
+                puts "To view attendees, please enter the name of the exhibition, else press zero to quit".colorize(:white)
         
                 command = gets.chomp
 
@@ -79,17 +79,17 @@ class CuratorViewExhibitions
                             exhibition.view_attendees
                             break
                         else 
-                            puts "No attendees"
+                            puts "No attendees".colorize(:light_cyan)
                             break
                         end
                     else
-                        puts "Invalid response."
+                        puts "Invalid response.".colorize(:red)
                         
                     end
                     
                 
             else
-                puts "\nYou have no #{state}exhibitions on record."
+                puts "\nYou have no #{state}exhibitions on record.".colorize(:light_cyan)
                 break
             end
         end

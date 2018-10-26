@@ -30,31 +30,31 @@ class CuratorDashboard
                 exhibition_menu = ExhibitionMenu.new(curator)
                 exhibition_menu.run
             elsif(command == "7")
-                puts "Goodbye, Curator #{curator.name}"
+                puts "Goodbye, Curator #{curator.name}".colorize(:white)
                 break
             else
-                puts "The number you entered did not relate to a command, try again."
+                puts "The number you entered did not relate to a command, try again.".colorize(:red)
             end
         end
     end
 
     def welcome_message
-        puts "Welcome Curator #{curator.name}."
+        puts "Welcome, Curator #{curator.name}!".colorize(:light_blue)
     end
 
     def command_list
-        puts "\nWhat would you like to do?"
-        puts "\n1. Edit profile."
-        puts "2. View your Exhibitions."
-        puts "3. Create a new Exhibition."
-        puts "4. Search Artists."
-        puts "5. Search Curators."
-        puts "6. Exhibitions Menu."
-        puts "7. Sign Out."
+        puts "\nWhat would you like to do?".colorize(:white)
+        puts "\n1. Edit profile.".colorize(:light_blue)
+        puts "2. View your Exhibitions.".colorize(:light_cyan)
+        puts "3. Create a new Exhibition.".colorize(:light_blue)
+        puts "4. Search Artists.".colorize(:light_cyan)
+        puts "5. Search Curators.".colorize(:light_blue)
+        puts "6. Exhibitions Menu.".colorize(:light_cyan)
+        puts "7. Sign Out.".colorize(:red)
     end
 
     def get_user_input
-        puts "\nPlease enter a command number.(1-7)"
+        puts "\nPlease enter a command number.(1-7)".colorize(:white)
         gets.chomp
     end
 
