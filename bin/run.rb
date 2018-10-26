@@ -1,11 +1,8 @@
 require_relative '../config/environment'
 
 
-#  ui = Interface.new
-# ui.run
-
-cd = CreateDashboard.new
-cd.run
+ ui = Interface.new
+ui.run
 
 
 

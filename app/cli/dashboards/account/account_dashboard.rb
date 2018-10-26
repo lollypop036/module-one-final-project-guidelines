@@ -72,7 +72,7 @@ class AccountDashboard
 
 
     def welcome_message
-        puts "Welcome to the Account Creation Menu."
+        puts "\nWelcome to the Account Creation Menu."
     end
 
     def command_list
