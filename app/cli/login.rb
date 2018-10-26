@@ -1,12 +1,20 @@
 class Login
 
+    attr_reader :prompt
+
+    def initialize(prompt)
+        @prompt = prompt
+    end
+
     def run
         while(true)
-            username = get_username
-            password = get_password
+            puts
+            username = prompt.ask("Please enter a Username.")
+            puts
+            password = prompt.mask("Please enter a Username.")
             if(is_artists?(username, password))
                 artist = Artist.get_artist(username, password)
-                dashboard = ArtistDashboard.new(artist)
+                dashboard = ArtistDashboard.new(artist, prompt)
                 dashboard.run
                 break
             elsif(is_curator?(username, password))
@@ -50,16 +58,5 @@ class Login
             false
         end
     end
-
-    def get_password
-        puts "\nPlease enter a password.(type exit to quit)"
-        gets.chomp
-    end
-
-    def get_username
-        puts "\nPlease enter a Username.(type exit to quit)"
-        gets.chomp
-    end
-
 
 end

@@ -29,10 +29,9 @@ class Artist < ActiveRecord::Base
         Exhibition.create(name: name, date: date, location: location, time: time, curator_id: nil, artist_id: self.id, style:self.style)
     end
 
-    def make_exhibition_booking(exhibition)
-
-        booking = Booking.create(artist_id: self.id, exhibition_id: exhibition.id, reference_number:SecureRandom.hex(6))
-
+    def make_exhibition_booking(exhibition_name)
+        exhibition = Exhibition.find_by(name: exhibition_name)
+        booking = Booking.create(user_id: self.id, exhibition_id: exhibition.id, artist_id:nil, curator_id:nil, reference_number:SecureRandom.hex(6))
         puts "Booking complete. Reference number - #{booking.reference_number}."
     end
 

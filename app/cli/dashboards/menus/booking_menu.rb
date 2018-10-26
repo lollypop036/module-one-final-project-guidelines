@@ -8,13 +8,12 @@ class BookingMenu
     end
 
     def run
-        welcome_message
+        prompt = TTY::Prompt.new
         while(true)
-            command_list
-            command = get_user_command
-            if(command == "1")
-                make_booking
-            elsif(command == "2")
+            command = command_list(prompt)
+            if(command == "Make a booking.")
+                make_booking(prompt)
+            elsif(command == "Return to search Menu.")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -22,29 +21,19 @@ class BookingMenu
         end
     end
 
-    def make_booking
+    def make_booking(prompt)
         if(exhibition_array.length == 1)
-            user.make_exhibition_booking(exhibition_array[0])
+            user.make_exhibition_booking(exhibition_array[0].name)
         else
-            puts "\nWhat exhibition would you like to make a booking for?(select by number)"
-            selected = gets.chomp
-            index = selected.to_i - 1
-            user.make_exhibition_booking(exhibition_array[index])
+            selection = exhibition_array.map{|e| e.name}
+            selected = prompt.select("\nWhat exhibition would you like to make a booking for?", selection)
+            user.make_exhibition_booking(selected)
         end
     end
 
-    def welcome_message
-        puts "Would you like to make a booking?"
-    end
-
-    def command_list
-        puts "\n1. Make a booking."
-        puts "2. Return to search Menu."
-    end
-
-    def get_user_command
-        puts "\nPlease enter a command number.(1-2)"
-        gets.chomp
+    def command_list(prompt)
+        array = ["Make a booking.", "Return to search Menu."]
+        prompt.select("\nWould you like to make a booking?", array)
     end
 
 end

@@ -17,7 +17,8 @@ class User <  ActiveRecord::Base
         Exhibition.all.where{|x| ex_id.include? x.id}.map{|y| y.name}
     end
   
-    def make_exhibition_booking(exhibition)
+    def make_exhibition_booking(exhibition_name)
+        exhibition = Exhibition.find_by(name: exhibition_name)
         booking = Booking.create(user_id: self.id, exhibition_id: exhibition.id, artist_id:nil, curator_id:nil, reference_number:SecureRandom.hex(6))
         puts "Booking complete. Reference number - #{booking.reference_number}."
     end

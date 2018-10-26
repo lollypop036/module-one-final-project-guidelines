@@ -1,37 +1,34 @@
 class ArtistDashboard 
 
-    attr_reader :artist
+    attr_reader :artist, :prompt
 
-    def initialize(artist)
+    def initialize(artist, prompt)
         @artist = artist
+        @prompt = prompt
     end
 
     def run
         welcome_message
         while(true)
-            command_list
-            command = get_user_input
-            if(command == "1")
-                #edit profile
+            command = command_list
+            if(command == "Edit profile.")
                 edit_menu = ArtistEditMenu.new(artist)
                 edit_menu.run
-            elsif(command == "2")
+            elsif(command == "View your Exhibitions.")
                 #view own exhibitions
                 view_menu = ArtistViewExhibitionsMenu.new(artist)
                 view_menu.run
-            elsif(command == "3")
+            elsif(command == "Create a new Exhibition.")
                 #create exhibition
                 create_menu = CreateMenu.new(artist)
                 create_menu.run
-            elsif(command == "4")
+            elsif(command == "Explore")
            #search curators & artists
                 search = ArtistSearchMenu.new
                 search.run
-            elsif(command == "5")
+            elsif(command == "Sign Out.")
                 puts "Goodbye, Artist #{artist.name}"
                 break
-            else
-                puts "The number you entered did not relate to a command, try again."
             end
         end
     end
@@ -41,12 +38,8 @@ class ArtistDashboard
     end
 
     def command_list
-        puts "\nWhat would you like to do?"
-        puts "\n1. Edit profile."
-        puts "2. View your Exhibitions."
-        puts "3. Create a new Exhibition."
-        puts "4. Explore"
-        puts "5. Sign Out."
+        array = ["Edit profile.", "View your Exhibitions.", "Create a new Exhibition.", "Explore", "Sign Out."]
+        prompt.select("\nWhat would you like to do?", array)
     end
 
     def get_user_input

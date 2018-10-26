@@ -1,20 +1,21 @@
 class Interface
 
     def run
+        prompt = TTY::Prompt.new
         welcome_message
         while(true)
-            puts "\nWhat would you like to do? (sign-in - s, create-account - a, continue-as-guest - g or quit - q)"
-            command = gets.chomp
-            if(command == "s")
-                login = Login.new
+            array = ["Sign-in.", "Create account.", "Continue as guest.", "Quit."]
+            command = prompt.select("\nWhat would you like to do?", array)
+            if(command == "Sign-in.")
+                login = Login.new(prompt)
                 login.run
-            elsif(command == "a")
+            elsif(command == "Create account.")
                 account = AccountDashboard.new
                 account.run
-            elsif(command == "g")
+            elsif(command == "Continue as guest.")
                 guest_dashboard = GuestDashboard.new
                 guest_dashboard.run
-            elsif(command == "q")
+            elsif(command == "Quit.")
                 puts "\nThank you, Good-bye!"
                 break
             else
