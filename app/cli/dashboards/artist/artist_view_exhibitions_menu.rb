@@ -21,8 +21,11 @@ class ArtistViewExhibitionsMenu
             elsif(command == "3")
                 list_exhibitions(artist.get_upcoming_exhibitions, "upcoming ")
             elsif(command == "4")
-                artist_bookings
+                list_exhibitions(Exhibition.joins(:collaborations, :artists).where("artists.id = ?", 1).distinct)
             elsif(command == "5")
+                artist_bookings = ViewBookingMenu.new(artist)
+                artist_bookings.run
+            elsif(command == "6")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -86,13 +89,14 @@ class ArtistViewExhibitionsMenu
         puts "\n1. View all your exhibitions."
         puts "2. View previous exhibitions."
         puts "3. View upcoming exhibitions."
-        puts "4. View your exhibition bookings"
-        puts "4. Return to main dashboard."
+        puts "4. View exhibitions you are collaboration on."
+        puts "5. View your exhibition bookings"
+        puts "6. Return to main dashboard."
     end
 
     
     def get_user_command
-        puts "\nPlease enter a command number.(1-4)"
+        puts "\nPlease enter a command number.(1-6)"
         gets.chomp
     end
 

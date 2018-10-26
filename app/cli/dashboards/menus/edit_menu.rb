@@ -94,7 +94,7 @@ class EditMenu
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-4)"
+        puts "\nPlease enter a command number.(1-5)"
         gets.chomp
     end
 

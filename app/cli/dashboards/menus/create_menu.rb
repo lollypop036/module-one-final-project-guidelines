@@ -41,7 +41,7 @@ class CreateMenu
     end
 
     def get_user_command
-        puts "\nPlease enter a command number.(1-6)"
+        puts "\nPlease enter a command number.(1-2)"
         gets.chomp
     end
 

@@ -54,7 +54,7 @@ class CuratorDashboard
     end
 
     def get_user_input
-        puts "\nPlease enter a command number.(1-6)"
+        puts "\nPlease enter a command number.(1-7)"
         gets.chomp
     end
 

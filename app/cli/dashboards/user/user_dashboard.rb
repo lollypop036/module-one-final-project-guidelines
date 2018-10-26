@@ -27,6 +27,7 @@ class UserDashboard
                 view_booking_menu = ViewBookingMenu.new(user)
                 view_booking_menu.run
             elsif(command == "6")
+                puts "Goodbye, User #{user.name}"
                 break
             else
                 puts "The number you entered did not relate to a command, try again."

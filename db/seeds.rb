@@ -15,9 +15,9 @@ ex3 = Exhibition.create(name: "Long days", date: "09/09/2018", location: "London
 ex4 = Exhibition.create(name: "Darkness", date: "22/10/2018", location: "Paris", time: "19:00 - 21:00", style:"wax", artist_id: 2)
 
 #Collaborations
-co1 = Collaboration.create()
-co1 = Collaboration.create()
-co1 = Collaboration.create()
+co1 = Collaboration.create(artist_id: 1, exhibition_id:1)
+co1 = Collaboration.create(artist_id: 2, exhibition_id:1)
+co1 = Collaboration.create(artist_id: 3, exhibition_id:2)
 
 #Curator
 cu1 = Curator.create(name: "Terry Crews", username: "terry", password: "admin", location: "L.A.")
