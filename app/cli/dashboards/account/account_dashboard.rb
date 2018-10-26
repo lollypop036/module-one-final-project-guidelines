@@ -1,5 +1,11 @@
 class AccountDashboard
 
+    attr_reader :prompt
+
+    def initialize(prompt)
+        @prompt = prompt
+    end
+
     def run
         welcome_message
         while(true)
@@ -7,17 +13,17 @@ class AccountDashboard
             account = gets.chomp
             if(account.downcase == "artist")
                 artist = create_artist_account
-                dashboard = ArtistDashboard.new(artist)
+                dashboard = ArtistDashboard.new(artist, prompt)
                 dashboard.run
                 break
             elsif(account.downcase == "curator")
                 curator = create_curator_account
-                dashboard = CuratorDashboard.new(curator)
+                dashboard = CuratorDashboard.new(curator, prompt)
                 dashboard.run
                 break
             elsif(account.downcase == "user")
                 user = create_user_account
-                dashboard = UserDashboard.new(user)
+                dashboard = UserDashboard.new(user, prompt)
                 dashboard.run
                 break
             else

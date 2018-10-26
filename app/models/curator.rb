@@ -55,7 +55,7 @@ class Curator <  ActiveRecord::Base
 
 
     def view_exhibition_visitors(exhibition)
-        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.visitor}
+        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.curator_id}
     end
 
     def exhibition_visitor_count(exhibition)

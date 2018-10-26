@@ -1,25 +1,22 @@
 class ViewBookingMenu
 
-    attr_reader :user
+    attr_reader :user, :prompt
     attr_accessor :bookings
 
-    def initialize(user)
+    def initialize(user, prompt)
         @user = user
+        @prompt = prompt
         @bookings = []
     end
 
     def run
-        welcome_message
         list_bookings
         while(true)
-            command_list
-            command = get_user_command
-            if(command == "1")
+            command = command_list
+            if(command == "Delete a Booking.")
                 delete_booking
-            elsif(command == "2")
+            elsif(command == "Quit to main dashboard.")
                 break
-            else
-                puts "The number you entered did not relate to a command, try again."
             end
         end    
     end
@@ -67,18 +64,9 @@ class ViewBookingMenu
         end 
     end
 
-    def welcome_message
-        puts "\nWelcome to the Bookings Menu."
-    end
-
     def command_list
-        puts "\n1. Delete a Booking."
-        puts "2. Quit to main dashboard."
-    end
-
-    def get_user_command
-        puts "\nPlease enter a command number.(1-2)"
-        gets.chomp
+        array = ["Delete a Booking.", "Quit to main dashboard."]
+        prompt.select("\nWelcome to the view exhibitions menu.", array)
     end
 
 end

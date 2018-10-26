@@ -27,6 +27,10 @@ class User <  ActiveRecord::Base
         Booking.all.where("user_id == ?", self.id)
     end
 
+    def view_exhibition_visitors(exhibition)
+        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.user_id}
+    end
+
 
     
 

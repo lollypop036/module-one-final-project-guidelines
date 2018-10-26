@@ -1,28 +1,26 @@
 class EditMenu
 
-    attr_reader :user
+    attr_reader :user, :prompt
 
-    def initialize(user)
+    def initialize(user, prompt)
         @user = user
+        @prompt = prompt
     end
 
     def run
-        welcome_message
         while(true)
-            command_list
-            command = get_user_command
-            if(command == "1")
+            #command_list
+            command = command_list
+            if(command == "Change name.")
                 change_name
-            elsif(command == "2")
+            elsif(command == "Change Username.")
                 change_username
-            elsif(command == "3")
+            elsif(command == "Change Password.")
                 change_password
-            elsif(command == "4")
+            elsif(command == "Change Location.")
                 change_location
-            elsif(command == "5")
+            elsif(command == "Quit to main dashboard.")
                 break
-            else
-                puts "The number you entered did not relate to a command, try again."
             end
         end
 
@@ -30,8 +28,7 @@ class EditMenu
 
     def change_name
         puts "\nChange Name."
-        puts "\nWhat would you like to change your name to?"
-        name = gets.chomp
+        name = prompt.ask("What would you like to change your name to?")
         user.update(:name => name)
         if(user.name == name)
             puts "The name change was successful."
@@ -42,11 +39,8 @@ class EditMenu
 
     def change_username
         puts "\nChange Username."
-        puts "\nWhat would you like to change your username to?"
-        username = gets.chomp
-
+        username = prompt.ask("What would you like to change your username to?")
         user.update(:username => username)
-
         if(user.username == username)
             puts "The username change was successful."
         else
@@ -56,11 +50,8 @@ class EditMenu
 
     def change_password
         puts "\nChange Password."
-        puts "\nWhat would you like to change your password to?"
-        password = gets.chomp
-
+        password = prompt.ask("What would you like to change your password to?")
         user.update(:password => password)
-
         if(user.password == password)
             puts "The password change was successful."
         else
@@ -70,10 +61,8 @@ class EditMenu
 
     def change_location
         puts "\nChange Location."
-        puts "\nWhat would you like to change your location to?"
-        location = gets.chomp
+        location = prompt.ask("What would you like to change your location to?")
         user.update(:location => location)
-
         if(user.location == location)
             puts "The password change was successful."
         else
@@ -81,21 +70,9 @@ class EditMenu
         end
     end
 
-    def welcome_message
-        puts "\nWelcome to the Edit menu."
-    end
-
     def command_list
-        puts "\n1. Change name."
-        puts "2. Change Username."
-        puts "3. Change Password."
-        puts "4. Change Location."
-        puts "5. Quit to main dashboard."
-    end
-
-    def get_user_command
-        puts "\nPlease enter a command number.(1-5)"
-        gets.chomp
+        array = ["Change name.", "Change Username.", "Change Password.", "Change Location.", "Quit to main dashboard."]
+        command = prompt.select("\nWelcome to the Edit menu.", array)
     end
 
 end

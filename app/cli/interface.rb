@@ -10,7 +10,7 @@ class Interface
                 login = Login.new(prompt)
                 login.run
             elsif(command == "Create account.")
-                account = AccountDashboard.new
+                account = AccountDashboard.new(prompt)
                 account.run
             elsif(command == "Continue as guest.")
                 guest_dashboard = GuestDashboard.new

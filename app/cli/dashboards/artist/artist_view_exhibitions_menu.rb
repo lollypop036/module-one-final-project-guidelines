@@ -1,31 +1,28 @@
 class ArtistViewExhibitionsMenu 
 
 
-    attr_reader :artist
+    attr_reader :artist, :prompt
 
-    def initialize(artist)
+    def initialize(artist, prompt)
         @artist = artist
+        @prompt = prompt
     end
 
     def run
-        welcome_message
         while(true)
-            command_list
-            
-            command = get_user_command
-            
-            if(command == "1")
+            command = command_list
+            if(command == "View all your exhibitions.")
                 list_exhibitions(artist.get_exhibitions)
-            elsif(command == "2")
+            elsif(command == "View previous exhibitions.")
                 list_exhibitions(artist.get_previous_exhibitions, "previous ")
-            elsif(command == "3")
+            elsif(command == "View upcoming exhibitions.")
                 list_exhibitions(artist.get_upcoming_exhibitions, "upcoming ")
-            elsif(command == "4")
+            elsif(command == "View exhibitions you are collaboration on.")
                 list_exhibitions(Exhibition.joins(:collaborations, :artists).where("artists.id = ?", 1).distinct)
-            elsif(command == "5")
-                artist_bookings = ViewBookingMenu.new(artist)
+            elsif(command == "View your exhibition bookings")
+                artist_bookings = ViewBookingMenu.new(artist, prompt)
                 artist_bookings.run
-            elsif(command == "6")
+            elsif(command == "Return to main dashboard.")
                 break
             else
                 puts "The number you entered did not relate to a command, try again."
@@ -78,26 +75,9 @@ class ArtistViewExhibitionsMenu
         end
     end
 
-
-    
-    def welcome_message
-        puts "\nWelcome to the view exhibitions menu."
-    end
-
-
     def command_list
-        puts "\n1. View all your exhibitions."
-        puts "2. View previous exhibitions."
-        puts "3. View upcoming exhibitions."
-        puts "4. View exhibitions you are collaboration on."
-        puts "5. View your exhibition bookings"
-        puts "6. Return to main dashboard."
-    end
-
-    
-    def get_user_command
-        puts "\nPlease enter a command number.(1-6)"
-        gets.chomp
+        array = ["View all your exhibitions.", "View previous exhibitions.", "View upcoming exhibitions.", "View exhibitions you are collaboration on.", "View your exhibition bookings", "Return to main dashboard."]
+        prompt.select("\nWelcome to the view exhibitions menu.", array)
     end
 
 end
