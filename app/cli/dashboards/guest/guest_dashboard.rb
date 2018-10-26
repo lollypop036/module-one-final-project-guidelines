@@ -23,7 +23,7 @@ class GuestDashboard
     end
 
     def welcome_message
-        puts "Welcome Guest".colorize(:light_blue)
+        puts "\nWelcome Guest".colorize(:light_blue)
     end
 
     def list_commands

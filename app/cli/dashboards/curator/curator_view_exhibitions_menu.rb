@@ -66,8 +66,8 @@ class CuratorViewExhibitions
                     
                 end
             
-                puts "To view attendees, please enter the name of the exhibition, else press zero to quit".colorize(:white)
-        
+                puts "\nTo view attendees, please enter the name of the exhibition, else press zero to quit".colorize(:white)
+                
                 command = gets.chomp
 
              

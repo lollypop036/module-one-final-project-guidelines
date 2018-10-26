@@ -22,8 +22,9 @@ class Curator <  ActiveRecord::Base
     end
 
    
-    def make_exhibition_booking(exhibition)
-        booking = Booking.create(curator_id: self.id, exhibition_id: exhibition.id, user_id: nil, artist_id:nil, reference_number:SecureRandom.hex(6))
+    def make_exhibition_booking(exhibition_name)
+        exhibition = Exhibition.find_by(name: exhibition_name)
+        booking = Booking.create(user_id: self.id, exhibition_id: exhibition.id, artist_id:nil, curator_id:nil, reference_number:SecureRandom.hex(6))
         puts "Booking complete. Reference number - #{booking.reference_number}."
     end
 
@@ -54,7 +55,7 @@ class Curator <  ActiveRecord::Base
 
 
     def view_exhibition_visitors(exhibition)
-        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.visitor}
+        Booking.all.where("exhibition_id == ?", exhibition.id).map{|x| x.curator_id}
     end
 
     def exhibition_visitor_count(exhibition)

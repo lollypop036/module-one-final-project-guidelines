@@ -1,9 +1,10 @@
 class CuratorDashboard
 
-    attr_reader :curator
+    attr_reader :curator, :prompt
 
-    def initialize(curator)
+    def initialize(curator, prompt)
         @curator = curator
+        @prompt = prompt
     end
 
     def run
@@ -12,7 +13,7 @@ class CuratorDashboard
             command_list
             command = get_user_input
             if(command == "1")
-                edit_menu = CuratorEditMenu.new(curator)
+                edit_menu = CuratorEditMenu.new(curator, prompt)
                 edit_menu.run
             elsif(command == "2")
                 view_menu = CuratorViewExhibitions.new(curator)
@@ -39,7 +40,7 @@ class CuratorDashboard
     end
 
     def welcome_message
-        puts "Welcome, Curator #{curator.name}!".colorize(:light_blue)
+        puts "\nWelcome Curator #{curator.name}.".colorize(:light_blue)
     end
 
     def command_list

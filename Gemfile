@@ -8,4 +8,4 @@ gem 'rmagick', '~> 2.16'
 gem 'catpix'
 gem "colorize"
 gem "require_all"
-
+gem 'tty-prompt'

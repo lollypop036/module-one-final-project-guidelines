@@ -1,9 +1,10 @@
 class UserDashboard
 
-    attr_reader :user
+    attr_reader :user, :prompt
 
-    def initialize(user)
+    def initialize(user, prompt)
         @user = user 
+        @prompt = prompt
     end
 
     def run
@@ -12,7 +13,7 @@ class UserDashboard
             command_list
             command = get_user_command
             if(command == "1")
-                edit_menu = UserEditMenu.new(user)
+                edit_menu = UserEditMenu.new(user, prompt)
                 edit_menu.run
             elsif(command == "2")
                 exhibition_menu = ExhibitionMenu.new(user)
@@ -24,7 +25,7 @@ class UserDashboard
                 curator_menu = CuratorSearchMenu.new
                 curator_menu.run
             elsif(command == "5")
-                view_booking_menu = ViewBookingMenu.new(user)
+                view_booking_menu = ViewBookingMenu.new(user, prompt)
                 view_booking_menu.run
             elsif(command == "6")
                 puts "Goodbye, User #{user.name}"
@@ -36,7 +37,7 @@ class UserDashboard
     end
 
     def welcome_message
-        puts "Welcome User #{user.name}"
+        puts "\nWelcome User #{user.name}"
     end
 
     def command_list
